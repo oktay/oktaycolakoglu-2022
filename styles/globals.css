@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .container {
+    @apply max-w-4xl mx-auto px-4 md:px-6;
+  }
+
+  .container-xl {
+    @apply max-w-7xl mx-auto px-4 md:px-6;
+  }
+
+  .button {
+    @apply inline-flex px-12 py-4 rounded-full font-medium text-lg transition;
+  }
+}
+
+@layer utilities {
+  .text-link {
+    @apply hover:opacity-70;
+  }
+
+  .button-link {
+    @apply hover:bg-opacity-80;
+  }
+}
+
+body {
+  @apply dark:bg-black dark:text-white;
+}

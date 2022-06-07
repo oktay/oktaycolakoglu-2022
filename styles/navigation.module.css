@@ -1,0 +1,11 @@
+.nav {
+  @apply hidden md:block;
+}
+
+.nav ul {
+  @apply flex space-x-10;
+}
+
+.navLink {
+  @apply inline-flex items-center space-x-4 font-medium;
+}
