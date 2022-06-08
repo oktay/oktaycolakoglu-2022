@@ -1,6 +1,6 @@
 import Navigation from "@comp/navigation";
+import Email from "@comp/email";
 import styles from "@styl/header.module.css";
-import Email from "./email";
 
 export default function Header() {
   return (
