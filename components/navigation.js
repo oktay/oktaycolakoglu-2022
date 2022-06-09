@@ -9,6 +9,17 @@ export default function Navigation() {
     meta.socials.dribbble,
   ];
 
+  function onClick(label) {
+    const analyticsData = {
+      event: `Click`, 
+      action: 'Navigation Click',
+      target: 'Main Navigation',
+      label: label,
+    }
+
+    window.dataLayer.push(analyticsData);
+  }
+
   return (
     <nav className={styles.nav}>
       <ul>
@@ -19,6 +30,7 @@ export default function Navigation() {
               className={styles.navLink}
               target="_blank"
               rel="noreferrer"
+              onClick={() => onClick(label)}
             >
               <span>{label}</span>
               <FiArrowUpRight />

@@ -19,6 +19,17 @@ export default function Footer() {
     },
   ];
 
+  function onCreditsClick(label) {
+    const analyticsData = {
+      event: `Click`,
+      action: `Credits Click`,
+      target: `Footer Credits`,
+      label: label,
+    };
+
+    window.dataLayer.push(analyticsData);
+  }
+
   return (
     <footer className="border-t pt-8 dark:border-t-dark-gray">
       <div className="container-xl">
@@ -47,6 +58,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 className="text-black dark:text-white underline"
+                onClick={() => onCreditsClick("Next.js")}
               >
                 Next JS
               </a>{" "}
@@ -56,6 +68,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 className="text-black dark:text-white underline"
+                onClick={() => onCreditsClick("Tailwind CSS")}
               >
                 Tailwind CSS
               </a>
