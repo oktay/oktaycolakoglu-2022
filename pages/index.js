@@ -4,15 +4,31 @@ import Header from "@comp/header";
 import Avatar from "@comp/avatar";
 import { meta } from "site.config";
 import { FiArrowUpRight, FiMail } from "react-icons/fi";
+import Script from "next/script";
 
 export default function Home() {
   return (
     <div>
+      
       <Head>
         <title>{meta.title}</title>
         <meta name="description" content={meta.description} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-LYP16CRBLX"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
+
+           gtag('config', 'G-LYP16CRBLX');
+        `}
+      </Script>
 
       <Header />
 
