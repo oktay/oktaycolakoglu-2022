@@ -7,6 +7,15 @@ import { FiArrowUpRight, FiMail } from "react-icons/fi";
 import Script from "next/script";
 
 export default function Home() {
+  function onEmailClick() {
+    const analyticsData = {
+      event: `Click`,
+      action: `Email Click`,
+      target: `Hero Email Button`,
+    };
+
+    window.dataLayer.push(analyticsData);
+  }
   return (
     <div>
       
@@ -15,7 +24,7 @@ export default function Home() {
         <meta name="description" content={meta.description} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      
+
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-LYP16CRBLX"
         strategy="afterInteractive"
@@ -51,6 +60,7 @@ export default function Home() {
             <a
               href="mailto:oktaycolakoglu@gmail.com"
               className="group button bg-black text-white inline-flex items-center space-x-6 overflow-hidden dark:bg-white dark:text-black"
+              onClick={() => onEmailClick()}
             >
               <span>İletişime Geç</span>
               <span className="relative inline-flex">
