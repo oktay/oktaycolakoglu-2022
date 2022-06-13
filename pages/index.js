@@ -51,7 +51,7 @@ export default function Home() {
               Merhaba ben Oktay
             </h4>
             <h1 className="text-4xl md:text-7xl font-bold leading-tight">
-              Arayüz Geliştiricisi & Tasarım Meraklısı
+              Arayüz Geliştiricisi &amp; Tasarım Meraklısı
             </h1>
             <p className="text-md md:text-xl font-normal">
               Tasarımlara hayat veriyor, işlevsel <strong>arayüzler</strong> ve{" "}
