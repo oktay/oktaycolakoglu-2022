@@ -11,7 +11,7 @@ export default function Navigation() {
 
   function onClick(label) {
     const analyticsData = {
-      event: `Click`, 
+      event: 'Click', 
       action: 'Navigation Click',
       target: 'Main Navigation',
       label: label,
