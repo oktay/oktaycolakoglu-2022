@@ -21,9 +21,9 @@ export default function Footer() {
 
   function onCreditsClick(label) {
     const analyticsData = {
-      event: `Click`,
-      action: `Credits Click`,
-      target: `Footer Credits`,
+      event: 'Click',
+      action: 'Credits Click',
+      target: 'Footer Credits',
       label: label,
     };
 
