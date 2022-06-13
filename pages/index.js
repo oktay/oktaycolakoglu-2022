@@ -45,7 +45,7 @@ export default function Home() {
         <div className="container my-4 md:my-16">
           <div className="text-center space-y-8">
             <div className="flex justify-center">
-              <Avatar />
+              <Avatar img="/memoji.png" alt="Oktay Çolakoğlu'nun Memojisi" />
             </div>
             <h4 className="text-2xl md:text-3xl font-semibold ">
               Merhaba ben Oktay
