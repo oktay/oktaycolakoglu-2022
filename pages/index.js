@@ -1,21 +1,49 @@
-import Head from "next/head";
-import Footer from "@comp/footer";
-import Header from "@comp/header";
-import Avatar from "@comp/avatar";
-import { meta } from "site.config";
-import { FiArrowUpRight, FiMail } from "react-icons/fi";
-import Script from "next/script";
+import Head from 'next/head';
+import Script from 'next/script';
+import Footer from '@comp/footer';
+import Header from '@comp/header';
+import Avatar from '@comp/avatar';
+import RepoCard from '@comp/repo-card';
+import ShotCard from '@comp/shot-card';
+import Button from '@comp/button';
+import { meta } from 'site.config';
+import { fetchRepos, fetchShots } from '@lib/data';
+import { FiArrowUpRight, FiDribbble, FiGithub, FiMail } from 'react-icons/fi';
 
-export default function Home() {
+export default function Home({ repos, shots }) {
   function onEmailClick() {
     const analyticsData = {
       event: 'Click',
       action: 'Email Click',
       target: 'Hero Email Button',
+      label: 'Email',
     };
 
     window.dataLayer.push(analyticsData);
   }
+
+  function onGithubClick() {
+    const analyticsData = {
+      event: 'Click',
+      action: 'Show More Click',
+      target: 'Github Section Button',
+      label: 'Github',
+    };
+
+    window.dataLayer.push(analyticsData);
+  }
+
+  function onDribbbleClick() {
+    const analyticsData = {
+      event: 'Click',
+      action: 'Show More Click',
+      target: 'Dribbble Section Button',
+      label: 'Dribbble',
+    };
+
+    window.dataLayer.push(analyticsData);
+  }
+
   return (
     <div>
       <Head>
@@ -30,56 +58,108 @@ export default function Home() {
       />
       <Script id="google-analytics" strategy="afterInteractive">
         {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
 
-          gtag('config', 'G-LYP16CRBLX');
-        `}
-      </Script>
-      <Script id="gtm" strategy="afterInteractive">
-        {`
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-5NTV3P2');
+           gtag('config', 'G-LYP16CRBLX');
         `}
       </Script>
 
       <Header />
 
       <main>
-        <div className="container my-4 md:my-16">
+        <div className="container my-16">
           <div className="text-center space-y-8">
             <div className="flex justify-center">
-              <Avatar img="/memoji.png" alt="Oktay Çolakoğlu'nun Memojisi" />
+              <Avatar img="/memoji.png" />
             </div>
-            <h4 className="text-2xl md:text-3xl font-semibold ">
+            <h4 className="text-2xl md:text-3xl font-semibold">
               Merhaba ben Oktay
             </h4>
             <h1 className="text-4xl md:text-7xl font-bold leading-tight">
-              Arayüz Geliştiricisi &amp; Tasarım Meraklısı
+              Arayüz Geliştiricisi & Tasarım Meraklısı
             </h1>
             <p className="text-md md:text-xl font-normal">
-              Tasarımlara hayat veriyor, işlevsel <strong>arayüzler</strong> ve{" "}
+              Tasarımlara hayat veriyor, işlevsel <strong>arayüzler</strong> ve{' '}
               <strong>uygulamalar</strong> yapıyorum.
             </p>
-            <a
+            <Button
               href="mailto:oktaycolakoglu@gmail.com"
-              className="group button bg-black text-white inline-flex items-center space-x-6 overflow-hidden dark:bg-white dark:text-black"
-              onClick={() => onEmailClick()}
+              className="bg-black text-white dark:bg-white dark:text-black text-lg"
+              onClick={onEmailClick}
+              firstIcon={<FiMail />}
+              secondIcon={<FiArrowUpRight />}
             >
-              <span>İletişime Geç</span>
-              <span className="relative inline-flex">
-                <span className="text-2xl inline-flex group-hover:-translate-y-12 transition">
-                  <FiMail />
-                </span>
-                <span className="text-2xl absolute inset-0 translate-y-12 group-hover:translate-y-0 transition">
-                  <FiArrowUpRight />
-                </span>
-              </span>
-            </a>
+              İletişime Geç
+            </Button>
+          </div>
+        </div>
+        <div className="container-xl mt-24 flex items-center justify-between">
+          <h2 className="heading text-center">Dribbble son shotlar</h2>
+          <Button
+              href={meta.socials.dribbble.href}
+              onClick={onDribbbleClick}
+              target="_blank"
+              rel="noreferrer"
+              className="button border hidden md:flex"
+              firstIcon={<FiDribbble />}
+              secondIcon={<FiArrowUpRight />}
+            >
+              Daha Fazla Göster
+            </Button>
+        </div>
+
+        <div className="my-12 container-fluid">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {shots.slice(0, 6).map(ShotCard)}
+          </div>
+          <div className="flex justify-center md:hidden">
+            <Button
+              href={meta.socials.dribbble.href}
+              onClick={onDribbbleClick}
+              target="_blank"
+              rel="noreferrer"
+              className="button border"
+              firstIcon={<FiDribbble />}
+              secondIcon={<FiArrowUpRight />}
+            >
+              Daha Fazla Göster
+            </Button>
+          </div>
+        </div>
+
+        <div className="container-xl mt-24 flex items-center justify-between">
+          <h2 className="heading">Github son projeler</h2>
+          <Button
+            href={meta.socials.github.href}
+            onClick={onGithubClick}
+            target="_blank"
+            rel="noreferrer"
+            className="button border hidden md:flex"
+            firstIcon={<FiGithub />}
+            secondIcon={<FiArrowUpRight />}
+          >
+            Daha Fazla Göster
+          </Button>
+        </div>
+
+        <div className="my-12 container-fluid">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {repos.slice(0, 8).map(RepoCard)}
+          </div>
+          <div className="flex justify-center mt-8 md:hidden">
+            <Button
+              href={meta.socials.github.href}
+              onClick={onGithubClick}
+              target="_blank"
+              rel="noreferrer"
+              className="button border"
+              firstIcon={<FiGithub />}
+              secondIcon={<FiArrowUpRight />}
+            >
+              Daha Fazla Göster
+            </Button>
           </div>
         </div>
       </main>
@@ -87,4 +167,16 @@ export default function Home() {
       <Footer />
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const repos = await fetchRepos({ sort: 'updated_at' });
+  const shots = await fetchShots();
+
+  return {
+    props: {
+      repos,
+      shots,
+    },
+  };
 }

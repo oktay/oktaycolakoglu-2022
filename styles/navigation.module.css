@@ -1,5 +1,5 @@
 .nav {
-  @apply hidden md:block;
+  @apply block;
 }
 
 .nav ul {

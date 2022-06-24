@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { FiArrowUpRight, FiMail } from "react-icons/fi";
-import { meta } from "site.config";
+import Link from 'next/link';
+import { FiArrowUpRight, FiMail } from 'react-icons/fi';
+import { meta } from 'site.config';
 
 export default function Email() {
   return (
