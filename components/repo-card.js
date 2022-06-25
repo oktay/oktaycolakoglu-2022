@@ -16,6 +16,7 @@ export default function RepoCard({
   watchers_count,
   language,
   html_url,
+  fork,
 }) {
   function onClick() {
     const analyticsData = {
@@ -28,7 +29,7 @@ export default function RepoCard({
     window.dataLayer.push(analyticsData);
   }
   return (
-    <div className="bg-white text-zinc-900 p-8 h-56 rounded-xl flex flex-col transition border-b-8 border-transparent hover:border-teal-400">
+    <div className="text-zinc-900 p-8 h-56 rounded-xl flex flex-col transition border-b-8 border-transparent hover:border-teal-400 border-2 border-gray-100 dark:bg-white">
       <a
         href={html_url}
         className="font-semibold text-lg flex items-center space-x-2"
@@ -38,6 +39,7 @@ export default function RepoCard({
       >
         <span>{name}</span>
         <FiArrowUpRight />
+        {fork && (<span className="text-xs font-semibold text-gray-500 border rounded px-2">FORK</span>)}
       </a>
       <p className="text-sm mt-2 text-zinc-500">{description}</p>
       <div className="flex space-x-2 mt-auto">
