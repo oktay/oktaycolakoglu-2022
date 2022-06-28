@@ -69,7 +69,7 @@ export default function Home({ repos, shots }) {
       <Header />
 
       <main>
-        <div className="container flex flex-col justify-center min-h-screen my-8">
+        <div className="container flex flex-col justify-center min-h-screen">
           <div className="text-center space-y-8">
             <div className="flex justify-center">
               <Avatar img="/memoji.png" />
