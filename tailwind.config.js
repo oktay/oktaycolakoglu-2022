@@ -11,6 +11,9 @@ module.exports = {
       colors: {
         "dark-gray": "#ffffff24",
       },
+      aspectRatio: {
+        '4/3': '4 / 3',
+      },
     },
   },
   plugins: [],

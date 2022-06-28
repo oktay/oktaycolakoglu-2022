@@ -1,15 +1,7 @@
 import { BsStar, BsEye, BsFileEarmarkCode } from 'react-icons/bs';
-import { FiArrowUpRight } from 'react-icons/fi';
-
-function Badge({ children }) {
-  return (
-    <div className="px-3 py-1 border text-xs rounded-full flex items-center space-x-2 bg-white font-semibold select-none">
-      {children}
-    </div>
-  );
-}
 
 export default function RepoCard({
+  id,
   name,
   description,
   stargazers_count,
@@ -22,40 +14,44 @@ export default function RepoCard({
     const analyticsData = {
       eventName: 'Click',
       action: 'Repository Click',
-      target: 'Repository Card',
+      target: 'Github Section Repository Card',
       label: name,
     };
 
     window.dataLayer.push(analyticsData);
   }
   return (
-    <div className="text-zinc-900 p-8 h-56 rounded-xl flex flex-col transition border-b-8 border-transparent hover:border-teal-400 border-2 border-gray-100 dark:bg-white">
-      <a
-        href={html_url}
-        className="font-semibold text-lg flex items-center space-x-2"
-        target="_blank"
-        rel="noreferrer"
-        onClick={onClick}
-      >
+    <a
+      key={id}
+      href={html_url}
+      target="_blank"
+      rel="noreferrer"
+      onClick={onClick}
+      className="text-zinc-900 p-8 h-56 rounded-xl flex flex-col transition border-b-8 border-transparent hover:border-teal-400 border-2 border-gray-100 dark:bg-white"
+    >
+      <div className="font-semibold text-lg flex items-center space-x-2">
         <span>{name}</span>
-        <FiArrowUpRight />
-        {fork && (<span className="text-xs font-semibold text-gray-500 border rounded px-2">FORK</span>)}
-      </a>
+        {fork && (
+          <span className="badge">
+            FORK
+          </span>
+        )}
+      </div>
       <p className="text-sm mt-2 text-zinc-500">{description}</p>
       <div className="flex space-x-2 mt-auto">
-        <Badge>
+        <div className="badge bg-white">
           <BsFileEarmarkCode />
           <span>{language || 'Mixed'}</span>
-        </Badge>
-        <Badge>
+        </div>
+        <div className="badge bg-white">
           <BsStar />
           <span>{stargazers_count}</span>
-        </Badge>
-        <Badge>
+        </div>
+        <div className="badge bg-white">
           <BsEye />
           <span>{watchers_count}</span>
-        </Badge>
+        </div>
       </div>
-    </div>
+    </a>
   );
 }
