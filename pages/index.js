@@ -69,7 +69,7 @@ export default function Home({ repos, shots }) {
       <Header />
 
       <main>
-        <div className="container flex flex-col items-center h-screen pt-24">
+        <div className="container flex flex-col justify-center h-screen">
           <div className="text-center space-y-8">
             <div className="flex justify-center">
               <Avatar img="/memoji.png" />
@@ -98,20 +98,20 @@ export default function Home({ repos, shots }) {
         <div className="container-xl flex items-center justify-between">
           <h2 className="heading text-center">Dribbble son shotlar</h2>
           <Button
-              href={meta.socials.dribbble.href}
-              onClick={onDribbbleClick}
-              target="_blank"
-              rel="noreferrer"
-              className="button border hidden md:flex"
-              firstIcon={<FiDribbble />}
-              secondIcon={<FiArrowUpRight />}
-            >
-              Daha Fazla Göster
-            </Button>
+            href={meta.socials.dribbble.href}
+            onClick={onDribbbleClick}
+            target="_blank"
+            rel="noreferrer"
+            className="button border hidden md:flex"
+            firstIcon={<FiDribbble />}
+            secondIcon={<FiArrowUpRight />}
+          >
+            Daha Fazla Göster
+          </Button>
         </div>
 
-        <div className="my-12 container-fluid">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mb-12 mt-8 container-fluid">
+          <div className="flex overflow-scroll md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {shots.slice(0, 6).map(ShotCard)}
           </div>
           <div className="flex justify-center mt-8 md:hidden">
@@ -144,8 +144,8 @@ export default function Home({ repos, shots }) {
           </Button>
         </div>
 
-        <div className="my-12 container-fluid">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="mb-12 mt-8 container-fluid">
+          <div className="flex overflow-scroll md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {repos.slice(0, 8).map(RepoCard)}
           </div>
           <div className="flex justify-center mt-8 md:hidden">
