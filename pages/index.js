@@ -53,7 +53,7 @@ export default function Home({ repos, shots }) {
       </Head>
 
       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-LYP16CRBLX"
+        src="https://www.googletagmanager.com/gtag/js?id=G-F2S3FW3EV8"
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
@@ -62,9 +62,19 @@ export default function Home({ repos, shots }) {
            function gtag(){dataLayer.push(arguments);}
            gtag('js', new Date());
 
-           gtag('config', 'G-LYP16CRBLX');
+           gtag('config', 'G-F2S3FW3EV8');
         `}
       </Script>
+      <Script id="gtm" strategy="afterInteractive">
+        {`
+           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+           })(window,document,'script','dataLayer','GTM-5NTV3P2');
+        `}
+      </Script>
+      
 
       <Header />
 
@@ -111,7 +121,7 @@ export default function Home({ repos, shots }) {
         </div>
 
         <div className="mb-12 mt-8 container-fluid">
-          <div className="flex overflow-scroll md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex overflow-scroll md:overflow-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {shots.slice(0, 6).map(ShotCard)}
           </div>
           <div className="flex justify-center mt-8 md:hidden">
@@ -145,7 +155,7 @@ export default function Home({ repos, shots }) {
         </div>
 
         <div className="mb-12 mt-8 container-fluid">
-          <div className="flex overflow-scroll md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="flex overflow-scroll md:overflow-auto md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {repos.slice(0, 8).map(RepoCard)}
           </div>
           <div className="flex justify-center mt-8 md:hidden">
