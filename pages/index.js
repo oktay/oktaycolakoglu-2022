@@ -69,7 +69,7 @@ export default function Home({ repos, shots }) {
       <Header />
 
       <main>
-        <div className="container my-16">
+        <div className="container flex flex-col items-center h-screen pt-24">
           <div className="text-center space-y-8">
             <div className="flex justify-center">
               <Avatar img="/memoji.png" />
@@ -95,7 +95,7 @@ export default function Home({ repos, shots }) {
             </Button>
           </div>
         </div>
-        <div className="container-xl mt-24 flex items-center justify-between">
+        <div className="container-xl flex items-center justify-between">
           <h2 className="heading text-center">Dribbble son shotlar</h2>
           <Button
               href={meta.socials.dribbble.href}
@@ -114,7 +114,7 @@ export default function Home({ repos, shots }) {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {shots.slice(0, 6).map(ShotCard)}
           </div>
-          <div className="flex justify-center md:hidden">
+          <div className="flex justify-center mt-8 md:hidden">
             <Button
               href={meta.socials.dribbble.href}
               onClick={onDribbbleClick}
