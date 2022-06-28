@@ -4,7 +4,7 @@ import { FiArrowUpRight } from 'react-icons/fi';
 export default function ShotCard({ id, title, images, html_url, tags }) {
   function onClick() {
     const analyticsData = {
-      eventName: 'Click',
+      event: 'Click',
       action: 'Shot Click',
       target: 'Dribbble Section Shot Card',
       label: title,

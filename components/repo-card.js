@@ -12,7 +12,7 @@ export default function RepoCard({
 }) {
   function onClick() {
     const analyticsData = {
-      eventName: 'Click',
+      event: 'Click',
       action: 'Repository Click',
       target: 'Github Section Repository Card',
       label: name,
