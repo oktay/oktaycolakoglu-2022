@@ -1,7 +1,7 @@
-import { meta } from "site.config";
-import SocialLink from "./social-link";
-import Email from "./email";
-import { FiDribbble, FiGithub, FiLinkedin } from "react-icons/fi";
+import { meta } from 'site.config';
+import { FiDribbble, FiGithub, FiLinkedin } from 'react-icons/fi';
+import SocialLink from '@comp/social-link';
+import Email from '@comp/email';
 
 export default function Footer() {
   const links = [
@@ -58,17 +58,17 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 className="text-black dark:text-white underline"
-                onClick={() => onCreditsClick("Next.js")}
+                onClick={() => onCreditsClick('Next.js')}
               >
                 Next JS
-              </a>{" "}
-              &amp;{" "}
+              </a>{' '}
+              &amp;{' '}
               <a
                 href="https://tailwindcss.com"
                 target="_blank"
                 rel="noreferrer"
                 className="text-black dark:text-white underline"
-                onClick={() => onCreditsClick("Tailwind CSS")}
+                onClick={() => onCreditsClick('Tailwind CSS')}
               >
                 Tailwind CSS
               </a>

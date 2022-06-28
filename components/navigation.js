@@ -1,6 +1,6 @@
-import styles from "@styl/navigation.module.css";
-import { meta } from "site.config";
-import { FiArrowUpRight } from "react-icons/fi";
+import styles from '@styl/navigation.module.css';
+import { meta } from 'site.config';
+import { FiArrowUpRight } from 'react-icons/fi';
 
 export default function Navigation() {
   const links = [
