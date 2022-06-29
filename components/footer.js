@@ -1,5 +1,5 @@
 import { meta } from 'site.config';
-import { FiDribbble, FiGithub, FiLinkedin } from 'react-icons/fi';
+import { BsDribbble, BsGithub, BsLinkedin } from 'react-icons/bs';
 import SocialLink from '@comp/social-link';
 import Email from '@comp/email';
 
@@ -7,15 +7,15 @@ export default function Footer() {
   const links = [
     {
       ...meta.socials.github,
-      icon: <FiGithub />,
+      icon: <BsGithub />,
     },
     {
       ...meta.socials.linkedin,
-      icon: <FiLinkedin />,
+      icon: <BsLinkedin />,
     },
     {
       ...meta.socials.dribbble,
-      icon: <FiDribbble />,
+      icon: <BsDribbble />,
     },
   ];
 
@@ -32,7 +32,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t pt-8 dark:border-t-dark-gray">
-      <div className="container-xl">
+      <div className="container-fluid">
         <div className="flex justify-between flex-col items-center space-y-4 md:space-y-0 md:flex-row">
           <ul className="flex space-x-2">
             {links.map(({ href, label, icon }) => (
@@ -47,7 +47,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="bg-gray-50 py-4 mt-8 dark:bg-black">
-        <div className="container-xl">
+        <div className="container-fluid">
           <div className="flex flex-col items-center md:flex-row justify-between text-gray-600 text-sm dark:text-gray-300">
             <p className="">
               © {new Date().getFullYear()} &mdash; {meta.title}

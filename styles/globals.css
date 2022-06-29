@@ -11,6 +11,10 @@
     @apply max-w-7xl mx-auto px-4 md:px-6;
   }
 
+  .container-2xl {
+    @apply max-w-screen-2xl mx-auto px-4 md:px-6;
+  }
+
   .container-fluid {
     @apply px-4 md:px-6;
   }
@@ -25,6 +29,10 @@
 
   .badge {
     @apply px-3 py-1 border text-xs rounded-full flex items-center space-x-2 font-semibold select-none;
+  }
+
+  .card {
+    @apply text-zinc-700 border-2 border-b-8 border-gray-100 rounded-xl p-4 md:p-8 hover:border-teal-400 dark:bg-white;
   }
 }
 
