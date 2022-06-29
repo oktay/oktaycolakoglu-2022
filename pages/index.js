@@ -111,7 +111,7 @@ export default function Home({ repos, shots }) {
         </div>
 
         <div className="mb-12 mt-8 container-fluid">
-          <div className="flex overflow-scroll md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex overflow-scroll md:overflow-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {shots.slice(0, 6).map(ShotCard)}
           </div>
           <div className="flex justify-center mt-8 md:hidden">
@@ -145,7 +145,7 @@ export default function Home({ repos, shots }) {
         </div>
 
         <div className="mb-12 mt-8 container-fluid">
-          <div className="flex overflow-scroll md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="flex overflow-scroll md:overflow-auto md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {repos.slice(0, 8).map(RepoCard)}
           </div>
           <div className="flex justify-center mt-8 md:hidden">
