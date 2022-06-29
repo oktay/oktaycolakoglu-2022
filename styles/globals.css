@@ -32,7 +32,7 @@
   }
 
   .card {
-    @apply text-zinc-700 border-2 border-b-8 border-gray-100 rounded-xl p-4 md:p-8 hover:border-teal-400 dark:bg-white;
+    @apply text-zinc-700 border-2 border-b-8 border-gray-100 rounded-xl p-4 md:p-6 hover:border-teal-400 dark:bg-white;
   }
 }
 
