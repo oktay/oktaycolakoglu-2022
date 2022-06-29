@@ -53,7 +53,7 @@ export default function Home({ repos, shots }) {
       </Head>
 
       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-LYP16CRBLX"
+        src="https://www.googletagmanager.com/gtag/js?id=G-F2S3FW3EV8"
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
@@ -62,9 +62,19 @@ export default function Home({ repos, shots }) {
            function gtag(){dataLayer.push(arguments);}
            gtag('js', new Date());
 
-           gtag('config', 'G-LYP16CRBLX');
+           gtag('config', 'G-F2S3FW3EV8');
         `}
       </Script>
+      <Script id="gtm" strategy="afterInteractive">
+        {`
+           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+           })(window,document,'script','dataLayer','GTM-5NTV3P2');
+        `}
+      </Script>
+      
 
       <Header />
 
