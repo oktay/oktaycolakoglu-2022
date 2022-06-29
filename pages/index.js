@@ -9,6 +9,7 @@ import Button from '@comp/button';
 import { meta } from 'site.config';
 import { fetchRepos, fetchShots } from '@lib/data';
 import { FiArrowUpRight, FiDribbble, FiGithub, FiMail } from 'react-icons/fi';
+import { BsDribbble, BsGithub } from 'react-icons/bs';
 
 export default function Home({ repos, shots }) {
   function onEmailClick() {
@@ -17,28 +18,6 @@ export default function Home({ repos, shots }) {
       action: 'Email Click',
       target: 'Hero Email Button',
       label: 'Email',
-    };
-
-    window.dataLayer.push(analyticsData);
-  }
-
-  function onGithubClick() {
-    const analyticsData = {
-      event: 'Click',
-      action: 'Show More Click',
-      target: 'Github Section Button',
-      label: 'Github',
-    };
-
-    window.dataLayer.push(analyticsData);
-  }
-
-  function onDribbbleClick() {
-    const analyticsData = {
-      event: 'Click',
-      action: 'Show More Click',
-      target: 'Dribbble Section Button',
-      label: 'Dribbble',
     };
 
     window.dataLayer.push(analyticsData);
@@ -78,19 +57,22 @@ export default function Home({ repos, shots }) {
 
       <Header />
 
-      <main>
-        <div className="container flex flex-col justify-center min-h-screen">
+      <main className="mb-32">
+        <section
+          id="hero"
+          className="container flex flex-col justify-center min-h-screen"
+        >
           <div className="text-center space-y-8">
             <div className="flex justify-center">
               <Avatar img="/memoji.png" />
             </div>
-            <h4 className="text-2xl md:text-3xl font-semibold">
+            <h4 className="text-2xl sm:text-3xl font-semibold">
               Merhaba ben Oktay
             </h4>
-            <h1 className="text-4xl md:text-7xl font-bold leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight">
               Arayüz Geliştiricisi & Tasarım Meraklısı
             </h1>
-            <p className="text-md md:text-xl font-normal">
+            <p className="text-md sm:text-lg md:text-xl font-normal">
               Tasarımlara hayat veriyor, işlevsel <strong>arayüzler</strong> ve{' '}
               <strong>uygulamalar</strong> yapıyorum.
             </p>
@@ -104,74 +86,46 @@ export default function Home({ repos, shots }) {
               İletişime Geç
             </Button>
           </div>
-        </div>
-        <div className="container-xl flex items-center justify-between">
-          <h2 className="heading text-center">Dribbble son shotlar</h2>
-          <Button
-            href={meta.socials.dribbble.href}
-            onClick={onDribbbleClick}
-            target="_blank"
-            rel="noreferrer"
-            className="button border hidden md:flex"
-            firstIcon={<FiDribbble />}
-            secondIcon={<FiArrowUpRight />}
-          >
-            Daha Fazla Göster
-          </Button>
-        </div>
+        </section>
 
-        <div className="mb-12 mt-8 container-fluid">
-          <div className="flex overflow-scroll md:overflow-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {shots.slice(0, 6).map(ShotCard)}
+        <section id="github" className="container-2xl md:grid md:grid-cols-12">
+          <div className="flex items-center md:block md:col-span-2">
+            <div>
+              <BsGithub className="text-3xl md:text-5xl" />
+              <span className="sr-only">Github</span>
+            </div>
+            <p className="text-xl ml-4 md:ml-0 md:text-2xl md:mt-6">
+              Github&lsquo;dan son hareketler
+            </p>
           </div>
-          <div className="flex justify-center mt-8 md:hidden">
-            <Button
-              href={meta.socials.dribbble.href}
-              onClick={onDribbbleClick}
-              target="_blank"
-              rel="noreferrer"
-              className="button border"
-              firstIcon={<FiDribbble />}
-              secondIcon={<FiArrowUpRight />}
-            >
-              Daha Fazla Göster
-            </Button>
+          <div className="col-span-12 col-start-4 mt-8 md:mt-0">
+            <div className="flex overflow-scroll gap-6 sm:overflow-auto sm:grid sm:grid-cols-2 xl:grid-cols-3">
+              {repos.slice(0, 6).map(RepoCard)}
+            </div>
           </div>
-        </div>
+        </section>
 
-        <div className="container-xl mt-24 flex items-center justify-between">
-          <h2 className="heading">Github son projeler</h2>
-          <Button
-            href={meta.socials.github.href}
-            onClick={onGithubClick}
-            target="_blank"
-            rel="noreferrer"
-            className="button border hidden md:flex"
-            firstIcon={<FiGithub />}
-            secondIcon={<FiArrowUpRight />}
-          >
-            Daha Fazla Göster
-          </Button>
-        </div>
+        <hr className="border-transparent my-8 md:my-16" />
 
-        <div className="mb-12 mt-8 container-fluid">
-          <div className="flex overflow-scroll md:overflow-auto md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {repos.slice(0, 8).map(RepoCard)}
+        <section
+          id="dribbble"
+          className="container-2xl md:grid md:grid-cols-12"
+        >
+          <div className="flex items-center md:block md:col-span-2">
+            <div>
+              <BsDribbble className="text-3xl md:text-5xl" />
+              <span className="sr-only">Dribbble</span>
+            </div>
+            <p className="text-xl ml-4 md:ml-0 md:text-2xl md:mt-6">
+              En son dribbble&lsquo;a yolladıklarım
+            </p>
           </div>
-          <div className="flex justify-center mt-8 md:hidden">
-            <Button
-              href={meta.socials.github.href}
-              onClick={onGithubClick}
-              target="_blank"
-              rel="noreferrer"
-              className="button border"
-              firstIcon={<FiGithub />}
-              secondIcon={<FiArrowUpRight />}
-            >
-              Daha Fazla Göster
-            </Button>
+          <div className="col-span-12 col-start-4 mt-8 md:mt-0">
+            <div className="flex overflow-scroll gap-6 md:overflow-auto md:grid md:grid-cols-2 xl:grid-cols-3">
+              {shots.slice(0, 6).map(ShotCard)}
+            </div>
           </div>
-        </div>
+        </section>
       </main>
 
       <Footer />

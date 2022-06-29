@@ -1,18 +1,19 @@
 module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     fontFamily: {
-      sans: ["Plus Jakarta Sans", "sans-serif"],
+      sans: ['Plus Jakarta Sans', 'sans-serif'],
     },
     extend: {
       colors: {
-        "dark-gray": "#ffffff24",
+        'dark-gray': '#ffffff24',
       },
       aspectRatio: {
         '4/3': '4 / 3',
+        '3/2': '3 / 2',
       },
     },
   },

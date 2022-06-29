@@ -1,3 +1,3 @@
 .header {
-  @apply py-8 fixed w-full top-0 left-0 bg-black bg-opacity-50 z-30;
+  @apply py-8 absolute w-full top-0 left-0;
 }
