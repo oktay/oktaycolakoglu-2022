@@ -6,9 +6,9 @@ import Avatar from '@comp/avatar';
 import RepoCard from '@comp/repo-card';
 import ShotCard from '@comp/shot-card';
 import Button from '@comp/button';
-import { meta } from 'site.config';
 import { fetchRepos, fetchShots } from '@lib/data';
-import { FiArrowUpRight, FiDribbble, FiGithub, FiMail } from 'react-icons/fi';
+import { meta } from 'site.config';
+import { FiArrowUpRight, FiMail } from 'react-icons/fi';
 import { BsDribbble, BsGithub } from 'react-icons/bs';
 
 export default function Home({ repos, shots }) {
@@ -26,9 +26,25 @@ export default function Home({ repos, shots }) {
   return (
     <div>
       <Head>
+        <meta httpEquiv="x-ua-compatible" content="ie=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
         <title>{meta.title}</title>
         <meta name="description" content={meta.description} />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href={meta.url} />
+
+        {/* facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={meta.url} />
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:description" content={meta.description} />
+
+        {/* twitter */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:url" content={meta.url} />
+        <meta name="twitter:title" content={meta.title} />
+        <meta name="twitter:description" content={meta.description} />
       </Head>
 
       <Script
@@ -53,7 +69,6 @@ export default function Home({ repos, shots }) {
            })(window,document,'script','dataLayer','GTM-5NTV3P2');
         `}
       </Script>
-      
 
       <Header />
 
@@ -63,9 +78,9 @@ export default function Home({ repos, shots }) {
           className="container flex flex-col justify-center min-h-screen"
         >
           <div className="text-center space-y-8">
-            <div className="flex justify-center">
+            <figure className="flex justify-center">
               <Avatar img="/memoji.png" />
-            </div>
+            </figure>
             <h4 className="text-2xl sm:text-3xl font-semibold">
               Merhaba ben Oktay
             </h4>
@@ -90,10 +105,10 @@ export default function Home({ repos, shots }) {
 
         <section id="github" className="container-2xl md:grid md:grid-cols-12">
           <div className="flex items-center md:block md:col-span-2">
-            <div>
+            <figure>
               <BsGithub className="text-3xl md:text-5xl" />
               <span className="sr-only">Github</span>
-            </div>
+            </figure>
             <p className="text-xl ml-4 md:ml-0 md:text-2xl md:mt-6">
               Github&lsquo;dan son hareketler
             </p>
@@ -112,10 +127,10 @@ export default function Home({ repos, shots }) {
           className="container-2xl md:grid md:grid-cols-12"
         >
           <div className="flex items-center md:block md:col-span-2">
-            <div>
+            <figure>
               <BsDribbble className="text-3xl md:text-5xl" />
               <span className="sr-only">Dribbble</span>
-            </div>
+            </figure>
             <p className="text-xl ml-4 md:ml-0 md:text-2xl md:mt-6">
               En son dribbble&lsquo;a yolladıklarım
             </p>
