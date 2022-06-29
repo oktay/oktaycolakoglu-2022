@@ -6,9 +6,9 @@ import Avatar from '@comp/avatar';
 import RepoCard from '@comp/repo-card';
 import ShotCard from '@comp/shot-card';
 import Button from '@comp/button';
-import { meta } from 'site.config';
 import { fetchRepos, fetchShots } from '@lib/data';
-import { FiArrowUpRight, FiDribbble, FiGithub, FiMail } from 'react-icons/fi';
+import { meta } from 'site.config';
+import { FiArrowUpRight, FiMail } from 'react-icons/fi';
 import { BsDribbble, BsGithub } from 'react-icons/bs';
 
 export default function Home({ repos, shots }) {
@@ -26,9 +26,25 @@ export default function Home({ repos, shots }) {
   return (
     <div>
       <Head>
+        <meta httpEquiv="x-ua-compatible" content="ie=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
         <title>{meta.title}</title>
         <meta name="description" content={meta.description} />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href={meta.url} />
+
+        {/* facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={meta.url} />
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:description" content={meta.description} />
+
+        {/* twitter */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:url" content={meta.url} />
+        <meta name="twitter:title" content={meta.title} />
+        <meta name="twitter:description" content={meta.description} />
       </Head>
 
       <Script
@@ -53,7 +69,6 @@ export default function Home({ repos, shots }) {
            })(window,document,'script','dataLayer','GTM-5NTV3P2');
         `}
       </Script>
-      
 
       <Header />
 
