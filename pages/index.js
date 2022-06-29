@@ -85,7 +85,7 @@ export default function Home({ repos, shots }) {
               Merhaba ben Oktay
             </h4>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight">
-              Arayüz Geliştiricisi & Tasarım Meraklısı
+              Arayüz Geliştiricisi &amp; Tasarım Meraklısı
             </h1>
             <p className="text-md sm:text-lg md:text-xl font-normal">
               Tasarımlara hayat veriyor, işlevsel <strong>arayüzler</strong> ve{' '}
@@ -110,7 +110,7 @@ export default function Home({ repos, shots }) {
               <span className="sr-only">Github</span>
             </figure>
             <p className="text-xl ml-4 md:ml-0 md:text-2xl md:mt-6">
-              Github&lsquo;dan son hareketler
+              Github&rsquo;dan son hareketler
             </p>
           </div>
           <div className="col-span-12 col-start-4 mt-8 md:mt-0">
@@ -132,7 +132,7 @@ export default function Home({ repos, shots }) {
               <span className="sr-only">Dribbble</span>
             </figure>
             <p className="text-xl ml-4 md:ml-0 md:text-2xl md:mt-6">
-              En son dribbble&lsquo;a yolladıklarım
+              En son dribbble&rsquo;a yolladıklarım
             </p>
           </div>
           <div className="col-span-12 col-start-4 mt-8 md:mt-0">

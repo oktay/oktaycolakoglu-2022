@@ -11,7 +11,7 @@ export default function Button({
     <a
       className={cx(
         'group button inline-flex items-center space-x-6 overflow-hidden',
-        className
+        className,
       )}
       {...props}
     >
@@ -19,13 +19,13 @@ export default function Button({
       <span
         className={cx(
           'relative inline-flex',
-          !firstIcon && !secondIcon && 'hidden'
+          !firstIcon && !secondIcon && 'hidden',
         )}
       >
         <span
           className={cx(
             'text-2xl inline-flex transition',
-            secondIcon && 'group-hover:-translate-y-12'
+            secondIcon && 'group-hover:-translate-y-12',
           )}
         >
           {firstIcon}
