@@ -78,9 +78,9 @@ export default function Home({ repos, shots }) {
           className="container flex flex-col justify-center min-h-screen"
         >
           <div className="text-center space-y-8">
-            <div className="flex justify-center">
+            <figure className="flex justify-center">
               <Avatar img="/memoji.png" />
-            </div>
+            </figure>
             <h4 className="text-2xl sm:text-3xl font-semibold">
               Merhaba ben Oktay
             </h4>
@@ -105,10 +105,10 @@ export default function Home({ repos, shots }) {
 
         <section id="github" className="container-2xl md:grid md:grid-cols-12">
           <div className="flex items-center md:block md:col-span-2">
-            <div>
+            <figure>
               <BsGithub className="text-3xl md:text-5xl" />
               <span className="sr-only">Github</span>
-            </div>
+            </figure>
             <p className="text-xl ml-4 md:ml-0 md:text-2xl md:mt-6">
               Github&lsquo;dan son hareketler
             </p>
@@ -127,10 +127,10 @@ export default function Home({ repos, shots }) {
           className="container-2xl md:grid md:grid-cols-12"
         >
           <div className="flex items-center md:block md:col-span-2">
-            <div>
+            <figure>
               <BsDribbble className="text-3xl md:text-5xl" />
               <span className="sr-only">Dribbble</span>
-            </div>
+            </figure>
             <p className="text-xl ml-4 md:ml-0 md:text-2xl md:mt-6">
               En son dribbble&lsquo;a yolladıklarım
             </p>
