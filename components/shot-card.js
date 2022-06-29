@@ -14,7 +14,10 @@ export default function ShotCard({ id, title, images, html_url, tags }) {
   }
 
   return (
-    <div key={id} className="relative group h-full w-3/4 md:w-full flex-shrink-0">
+    <div
+      key={id}
+      className="relative group h-full w-3/4 md:w-full flex-shrink-0"
+    >
       <div className="relative aspect-[4/3]">
         <Image
           src={images.two_x}
@@ -33,7 +36,7 @@ export default function ShotCard({ id, title, images, html_url, tags }) {
       >
         <div className="p-8 flex items-center">
           <div>
-            <h4 className="text-2xl font-bold">{title}</h4>
+            <h4 className="text-xl font-bold">{title}</h4>
             <ul className="space-x-2">
               {tags.map((tag, index) => (
                 <li key={index} className="inline-block text-sm">
@@ -43,7 +46,7 @@ export default function ShotCard({ id, title, images, html_url, tags }) {
             </ul>
           </div>
         </div>
-        <FiArrowUpRight className="text-7xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+        <FiArrowUpRight className="text-7xl absolute top-8 left-8" />
       </a>
     </div>
   );
