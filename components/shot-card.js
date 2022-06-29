@@ -32,7 +32,7 @@ export default function ShotCard({ id, title, images, html_url, tags }) {
         onClick={onClick}
         target="_blank"
         rel="noreferrer"
-        className="flex items-end absolute inset-0 bg-black bg-opacity-40 opacity-0 transition group-hover:opacity-100"
+        className="text-white flex items-end absolute inset-0 bg-black bg-opacity-40 opacity-0 transition group-hover:opacity-100"
       >
         <div className="p-8 flex items-center">
           <div>

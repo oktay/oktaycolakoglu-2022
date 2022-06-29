@@ -46,7 +46,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="bg-gray-50 py-4 mt-8 dark:bg-black">
+      <div className="py-4 mt-8">
         <div className="container-fluid">
           <div className="flex flex-col items-center md:flex-row justify-between text-gray-600 text-sm dark:text-gray-300">
             <p className="">
