@@ -1,10 +1,10 @@
 export default function SocialLink({ href, label, icon }) {
   const analyticsData = {
-    event: 'Click', 
+    event: 'Click',
     action: 'Social Link Click',
     target: 'Footer Social Links',
     label: label,
-  }
+  };
 
   return (
     <a
