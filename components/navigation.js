@@ -1,4 +1,3 @@
-import styles from '@styl/navigation.module.css';
 import { meta } from 'site.config';
 import { FiArrowUpRight } from 'react-icons/fi';
 
@@ -21,13 +20,13 @@ export default function Navigation() {
   }
 
   return (
-    <nav className={styles.nav}>
-      <ul>
+    <nav>
+      <ul className="flex space-x-10">
         {links.map(({ href, label }) => (
           <li key={href}>
             <a
               href={href}
-              className={styles.navLink}
+              className="inline-flex items-center space-x-4 font-medium"
               target="_blank"
               rel="noreferrer"
               onClick={() => onClick(label)}
