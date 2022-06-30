@@ -149,7 +149,7 @@ export default function Home({ repos, shots }) {
 }
 
 export async function getServerSideProps() {
-  const repos = await fetchRepos({ sort: 'updated_at' });
+  const repos = await fetchRepos({ sort: 'updated' });
   const shots = await fetchShots();
 
   return {
