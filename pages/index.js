@@ -6,6 +6,7 @@ import Avatar from '@comp/avatar';
 import RepoCard from '@comp/repo-card';
 import ShotCard from '@comp/shot-card';
 import Button from '@comp/button';
+import ScrollTop from '@comp/scroll-top';
 import { fetchRepos, fetchShots, request } from '@lib/data';
 import { meta } from 'site.config';
 import { FiArrowUpRight, FiMail } from 'react-icons/fi';
@@ -158,6 +159,7 @@ export default function Home({ repos, shots, homepage, seo }) {
       </main>
 
       <Footer />
+      <ScrollTop />
     </div>
   );
 }
