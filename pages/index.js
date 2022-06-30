@@ -6,12 +6,12 @@ import Avatar from '@comp/avatar';
 import RepoCard from '@comp/repo-card';
 import ShotCard from '@comp/shot-card';
 import Button from '@comp/button';
-import { fetchRepos, fetchShots } from '@lib/data';
+import { fetchRepos, fetchShots, request } from '@lib/data';
 import { meta } from 'site.config';
 import { FiArrowUpRight, FiMail } from 'react-icons/fi';
 import { BsDribbble, BsGithub } from 'react-icons/bs';
 
-export default function Home({ repos, shots }) {
+export default function Home({ repos, shots, homepage, seo }) {
   function onEmailClick() {
     const analyticsData = {
       event: 'Click',
@@ -29,22 +29,37 @@ export default function Home({ repos, shots }) {
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>{meta.title}</title>
-        <meta name="description" content={meta.description} />
+        <title>{seo.fallbackSeo.title || meta.title}</title>
+        <meta
+          name="description"
+          content={seo.fallbackSeo.description || meta.description}
+        />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={meta.url} />
 
         {/* facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content={meta.url} />
-        <meta property="og:title" content={meta.title} />
-        <meta property="og:description" content={meta.description} />
+        <meta
+          property="og:title"
+          content={seo.fallbackSeo.title || meta.title}
+        />
+        <meta
+          property="og:description"
+          content={seo.fallbackSeo.description || meta.description}
+        />
 
         {/* twitter */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:url" content={meta.url} />
-        <meta name="twitter:title" content={meta.title} />
-        <meta name="twitter:description" content={meta.description} />
+        <meta
+          name="twitter:title"
+          content={seo.fallbackSeo.title || meta.title}
+        />
+        <meta
+          name="twitter:description"
+          content={seo.fallbackSeo.description || meta.description}
+        />
       </Head>
 
       <Script
@@ -82,14 +97,13 @@ export default function Home({ repos, shots }) {
               <Avatar img="/memoji.png" />
             </figure>
             <h4 className="text-2xl sm:text-3xl font-semibold">
-              Merhaba ben Oktay
+              {homepage.subtitle}
             </h4>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight">
-              Arayüz Geliştiricisi &amp; Tasarım Meraklısı
+              {homepage.title}
             </h1>
             <p className="text-md sm:text-lg md:text-xl font-normal">
-              Tasarımlara hayat veriyor, işlevsel <strong>arayüzler</strong> ve{' '}
-              <strong>uygulamalar</strong> yapıyorum.
+              {homepage.description}
             </p>
             <Button
               href="mailto:oktaycolakoglu@gmail.com"
@@ -151,11 +165,33 @@ export default function Home({ repos, shots }) {
 export async function getServerSideProps() {
   const repos = await fetchRepos({ sort: 'updated' });
   const shots = await fetchShots();
+  const data = await request({
+    query: `{
+      homepage(locale: tr) {
+        title
+        subtitle
+        description
+        available
+      }
+      site: _site {
+        globalSeo(locale: tr) {
+          titleSuffix
+          twitterAccount
+          fallbackSeo {
+            description
+            title
+          }
+        }
+      }
+    }`,
+  });
 
   return {
     props: {
       repos,
       shots,
+      homepage: data.homepage,
+      seo: data.site.globalSeo,
     },
   };
 }
