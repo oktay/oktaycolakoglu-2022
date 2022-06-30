@@ -48,13 +48,14 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="bg-gray-50 py-4 mt-8 dark:bg-black">
+      <div className="py-4 mt-8">
         <div className="container-fluid">
           <div className="flex flex-col items-center md:flex-row justify-between text-gray-600 text-sm dark:text-gray-300">
-            <p className="">
+            <p className="flex-shrink-0">
               © {new Date().getFullYear()} &mdash; {meta.title}
             </p>
-            <p>
+            <p className="text-center mt-4 md:mt-0 md:ml-8 md:text-left">
+              Bu proje{' '}
               <a
                 href="https://nextjs.org"
                 target="_blank"
@@ -64,7 +65,7 @@ export default function Footer() {
               >
                 Next JS
               </a>{' '}
-              &amp;{' '}
+              ve{' '}
               <a
                 href="https://tailwindcss.com"
                 target="_blank"
@@ -73,7 +74,18 @@ export default function Footer() {
                 onClick={() => onCreditsClick('Tailwind CSS')}
               >
                 Tailwind CSS
-              </a>
+              </a>{' '}
+              kullanılarak hazırlandı ve kaynak kodları{' '}
+              <a
+                href="https://github.com/oktay/oktaycolakoglu-2022"
+                target="_blank"
+                rel="noreferrer"
+                className="text-black dark:text-white underline"
+                onClick={() => onCreditsClick('Source Code')}
+              >
+                Github
+              </a>{' '}
+              üzerinde paylaşıldı.
             </p>
           </div>
         </div>
