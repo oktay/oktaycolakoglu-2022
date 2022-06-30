@@ -32,7 +32,11 @@
   }
 
   .card {
-    @apply text-zinc-700 border-2 border-b-8 border-gray-100 rounded-xl p-4 md:p-6 hover:border-teal-400 dark:bg-white;
+    @apply bg-white text-zinc-700 border-2 border-b-8 rounded-xl border-gray-100  hover:border-teal-400;
+  }
+
+  .overlay {
+    @apply absolute inset-0 text-white transition;
   }
 }
 
