@@ -6,6 +6,7 @@ import Avatar from '@comp/avatar';
 import RepoCard from '@comp/repo-card';
 import ShotCard from '@comp/shot-card';
 import Button from '@comp/button';
+import ScrollTop from '@comp/scroll-top';
 import { fetchRepos, fetchShots, request } from '@lib/data';
 import { meta } from 'site.config';
 import { FiArrowUpRight, FiMail } from 'react-icons/fi';
@@ -117,7 +118,7 @@ export default function Home({ repos, shots, homepage, seo }) {
           </div>
         </section>
 
-        <section id="github" className="container-2xl md:grid md:grid-cols-12">
+        <section id="github" className="container-2xl md:grid md:grid-cols-12 scroll-m-36">
           <div className="flex items-center md:block md:col-span-2">
             <figure>
               <BsGithub className="text-3xl md:text-5xl" />
@@ -138,7 +139,7 @@ export default function Home({ repos, shots, homepage, seo }) {
 
         <section
           id="dribbble"
-          className="container-2xl md:grid md:grid-cols-12"
+          className="container-2xl md:grid md:grid-cols-12 scroll-m-36"
         >
           <div className="flex items-center md:block md:col-span-2">
             <figure>
@@ -158,6 +159,7 @@ export default function Home({ repos, shots, homepage, seo }) {
       </main>
 
       <Footer />
+      <ScrollTop />
     </div>
   );
 }

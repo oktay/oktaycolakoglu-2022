@@ -1,11 +1,23 @@
-import { meta } from 'site.config';
-import { FiArrowUpRight } from 'react-icons/fi';
+// import { meta } from 'site.config';
+// import { FiArrowUpRight } from 'react-icons/fi';
 
 export default function Navigation() {
   const links = [
-    meta.socials.github,
-    meta.socials.linkedin,
-    meta.socials.dribbble,
+    {
+      href: '#hero',
+      label: 'Home',
+    },
+    {
+      href: '#github',
+      label: 'Github',
+    },
+    {
+      href: '#dribbble',
+      label: 'Dribbble',
+    },
+    // meta.socials.github
+    // meta.socials.linkedin,
+    // meta.socials.dribbble,
   ];
 
   function onClick(label) {
@@ -21,18 +33,18 @@ export default function Navigation() {
 
   return (
     <nav>
-      <ul className="flex space-x-10">
+      <ul className="flex space-x-16">
         {links.map(({ href, label }) => (
           <li key={href}>
             <a
               href={href}
               className="inline-flex items-center space-x-4 font-medium"
-              target="_blank"
-              rel="noreferrer"
+              // target="_blank"
+              // rel="noreferrer"
               onClick={() => onClick(label)}
             >
               <span>{label}</span>
-              <FiArrowUpRight />
+              {/* <FiArrowUpRight /> */}
             </a>
           </li>
         ))}
