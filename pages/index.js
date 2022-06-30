@@ -75,7 +75,7 @@ export default function Home({ repos, shots }) {
       <main className="mb-32">
         <section
           id="hero"
-          className="container flex flex-col justify-center min-h-screen"
+          className="container flex flex-col justify-center min-h-screen py-16 md:py-28"
         >
           <div className="text-center space-y-8">
             <figure className="flex justify-center">
