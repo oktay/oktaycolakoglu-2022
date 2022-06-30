@@ -42,7 +42,9 @@ export default function Footer() {
             ))}
           </ul>
           <div className="hidden md:block">
-            <Email />
+            <Email href="mailto:oktaycolakoglu@gmail.com">
+              oktaycolakoglu@gmail.com
+            </Email>
           </div>
         </div>
       </div>

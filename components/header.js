@@ -6,7 +6,7 @@ export default function Header() {
     <header className="py-8 absolute w-full top-0 left-0 hidden lg:block">
       <div className="container-fluid">
         <div className="flex flex-col justify-between items-center md:flex-row">
-          <Email />
+          <Email href="/">oktaycolakoglu@gmail.com</Email>
           <Navigation />
         </div>
       </div>
