@@ -32,18 +32,14 @@ export default function ShotCard({ id, title, images, html_url, tags }) {
         onClick={onClick}
         target="_blank"
         rel="noreferrer"
-        className="flex items-end absolute inset-0 text-white bg-black bg-opacity-40 opacity-0 transition group-hover:opacity-100"
+        className="overlay bg-teal-400 bg-opacity-90 flex opacity-0 group-hover:opacity-100"
       >
-        <div className="p-8 flex items-center">
+        <div className="p-8 self-end">
           <div>
             <h4 className="text-xl font-bold">{title}</h4>
-            <ul className="space-x-2">
-              {tags.map((tag, index) => (
-                <li key={index} className="inline-block text-sm">
-                  #{tag},
-                </li>
-              ))}
-            </ul>
+            <p className="space-x-2 text-sm">
+              {tags.map((tag) => `#${tag}`).join(', ')}
+            </p>
           </div>
         </div>
         <FiArrowUpRight className="text-7xl absolute top-8 left-8" />
