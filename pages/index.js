@@ -118,7 +118,7 @@ export default function Home({ repos, shots, homepage, seo }) {
           </div>
         </section>
 
-        <section id="github" className="container-2xl md:grid md:grid-cols-12">
+        <section id="github" className="container-2xl md:grid md:grid-cols-12 scroll-m-36">
           <div className="flex items-center md:block md:col-span-2">
             <figure>
               <BsGithub className="text-3xl md:text-5xl" />
@@ -139,7 +139,7 @@ export default function Home({ repos, shots, homepage, seo }) {
 
         <section
           id="dribbble"
-          className="container-2xl md:grid md:grid-cols-12"
+          className="container-2xl md:grid md:grid-cols-12 scroll-m-36"
         >
           <div className="flex items-center md:block md:col-span-2">
             <figure>
