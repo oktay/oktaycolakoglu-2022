@@ -36,7 +36,7 @@ export default function ShotCard({ id, title, images, html_url, tags }) {
       >
         <div className="p-8 self-end">
           <div>
-            <h4 className="text-xl font-bold">{title}</h4>
+            <strong className="text-xl font-bold">{title}</strong>
             <p className="space-x-2 text-sm">
               {tags.map((tag) => `#${tag}`).join(', ')}
             </p>

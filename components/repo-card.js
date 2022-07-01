@@ -92,7 +92,7 @@ export default function RepoCard({
                 className="flex items-center ml-auto whitespace-nowrap text-ellipsis overflow-hidden"
               >
                 <BsLink45Deg className="text-xl flex-shrink-0" />
-                <span className="text-teal-600 font-semibold text-xs whitespace-nowrap text-ellipsis overflow-hidden">
+                <span className="text-teal-700 font-semibold text-xs whitespace-nowrap text-ellipsis overflow-hidden">
                   {homepage}
                 </span>
               </a>

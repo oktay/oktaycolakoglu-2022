@@ -63,10 +63,6 @@ export default function Home({ repos, shots, homepage, seo }) {
         />
       </Head>
 
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-F2S3FW3EV8"
-        strategy="afterInteractive"
-      />
       <Script id="google-analytics" strategy="afterInteractive">
         {`
            window.dataLayer = window.dataLayer || [];
@@ -95,7 +91,7 @@ export default function Home({ repos, shots, homepage, seo }) {
         >
           <div className="text-center space-y-8">
             <figure className="flex justify-center">
-              <Avatar img="/memoji.png" />
+              <Avatar img="/memoji.png" alt="Memoji" />
             </figure>
             <h4 className="text-2xl sm:text-3xl font-semibold">
               {homepage.subtitle}
