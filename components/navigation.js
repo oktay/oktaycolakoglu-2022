@@ -1,7 +1,11 @@
-// import { meta } from 'site.config';
-// import { FiArrowUpRight } from 'react-icons/fi';
+import { useState } from 'react';
+import { FiMenu } from 'react-icons/fi';
+import Button from '@comp/button';
+import cx from 'classnames';
 
 export default function Navigation() {
+  const [show, setShow] = useState(false);
+
   const links = [
     {
       href: '#hero',
@@ -15,9 +19,6 @@ export default function Navigation() {
       href: '#dribbble',
       label: 'Dribbble',
     },
-    // meta.socials.github
-    // meta.socials.linkedin,
-    // meta.socials.dribbble,
   ];
 
   function onClick(label) {
@@ -31,9 +32,27 @@ export default function Navigation() {
     window.dataLayer.push(analyticsData);
   }
 
+  function onMobileClick(label) {
+    const analyticsData = {
+      event: 'Click',
+      action: 'MobileNavigation Click',
+      target: 'Mobile Navigation',
+      label: label,
+    };
+
+    window.dataLayer.push(analyticsData);
+  }
+
   return (
     <nav>
-      <ul className="flex space-x-16">
+      <Button
+        className="text-xl p-4 border border-zinc-600 md:hidden"
+        onClick={() => setShow(!show)}
+      >
+        <span className="sr-only">Menu</span>
+        <FiMenu />
+      </Button>
+      <ul className="space-x-16 hidden md:flex">
         {links.map(({ href, label }) => (
           <li key={href}>
             <a
@@ -45,6 +64,24 @@ export default function Navigation() {
             >
               <span>{label}</span>
               {/* <FiArrowUpRight /> */}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <ul
+        className={cx(
+          show ? 'translate-y-0' : '-translate-y-full pointer-events-none',
+          'bg-zinc-900 flex flex-col absolute top-32 left-0 -z-10 w-full transform origin-top transition md:hidden',
+        )}
+      >
+        {links.map(({ href, label }) => (
+          <li key={href}>
+            <a
+              href={href}
+              className="flex px-12 py-8"
+              onClick={() => onMobileClick(label)}
+            >
+              <span>{label}</span>
             </a>
           </li>
         ))}

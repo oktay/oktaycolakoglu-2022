@@ -25,7 +25,7 @@ export default function Home({ repos, shots, homepage, seo }) {
   }
 
   return (
-    <div>
+    <>
       <Head>
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -87,24 +87,24 @@ export default function Home({ repos, shots, homepage, seo }) {
       <main className="mb-32">
         <section
           id="hero"
-          className="container flex flex-col justify-center min-h-screen py-16 md:py-28"
+          className="container-padding pt-16 pb-20 md:pt-20 md:pb-24"
         >
-          <div className="text-center space-y-8">
-            <figure className="flex justify-center">
+          <div className="container-xs flex flex-col items-center text-center">
+            <figure className="mb-8">
               <Avatar img="/memoji.png" alt="Memoji" />
             </figure>
-            <h4 className="text-2xl sm:text-3xl font-semibold">
+            <h4 className="text-3xl font-medium mb-8 tracking-custom">
               {homepage.subtitle}
             </h4>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight">
+            <h1 className="hero-title tracking-custom mb-12">
               {homepage.title}
             </h1>
-            <p className="text-md sm:text-lg md:text-xl font-normal">
+            <p className="hero-desc text-lg mb-12 sm:text-2xl">
               {homepage.description}
             </p>
             <Button
               href="mailto:oktaycolakoglu@gmail.com"
-              className="bg-black text-white dark:bg-white dark:text-black text-lg"
+              className="bg-black text-white dark:bg-white dark:text-black text-sm font-bold"
               onClick={onEmailClick}
               firstIcon={<FiMail />}
               secondIcon={<FiArrowUpRight />}
@@ -114,7 +114,10 @@ export default function Home({ repos, shots, homepage, seo }) {
           </div>
         </section>
 
-        <section id="github" className="container-2xl md:grid md:grid-cols-12 scroll-m-36">
+        <section
+          id="github"
+          className="container-xl md:grid md:grid-cols-12 scroll-m-36"
+        >
           <div className="flex items-center md:block md:col-span-2">
             <figure>
               <BsGithub className="text-3xl md:text-5xl" />
@@ -135,7 +138,7 @@ export default function Home({ repos, shots, homepage, seo }) {
 
         <section
           id="dribbble"
-          className="container-2xl md:grid md:grid-cols-12 scroll-m-36"
+          className="container-xl md:grid md:grid-cols-12 scroll-m-36"
         >
           <div className="flex items-center md:block md:col-span-2">
             <figure>
@@ -156,7 +159,7 @@ export default function Home({ repos, shots, homepage, seo }) {
 
       <Footer />
       <ScrollTop />
-    </div>
+    </>
   );
 }
 

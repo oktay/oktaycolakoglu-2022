@@ -4,23 +4,23 @@
 
 @layer components {
   .container {
-    @apply max-w-4xl mx-auto px-4 md:px-6;
+    @apply max-w-4xl mx-auto container-padding;
+  }
+
+  .container-xs {
+    @apply max-w-4xl mx-auto;
   }
 
   .container-xl {
-    @apply max-w-7xl mx-auto px-4 md:px-6;
-  }
-
-  .container-2xl {
-    @apply max-w-screen-2xl mx-auto px-4 md:px-6;
+    @apply max-w-screen-2xl mx-auto container-padding;
   }
 
   .container-fluid {
-    @apply px-4 md:px-6;
+    @apply container-padding;
   }
 
   .button {
-    @apply inline-flex items-center space-x-2 px-12 py-4 rounded-full font-medium transition;
+    @apply inline-flex items-center space-x-2 px-12 py-6 rounded-full font-semibold uppercase transition;
   }
 
   .heading {
@@ -41,6 +41,11 @@
 }
 
 @layer utilities {
+  .container-padding {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+
   .text-link {
     @apply hover:opacity-70;
   }
@@ -48,8 +53,32 @@
   .button-link {
     @apply hover:bg-opacity-80;
   }
+
+  .hero-title {
+    @apply text-5xl font-medium;
+  }
+
+  .hero-desc {
+    max-width: 540px;
+    line-height: 1.4;
+  }
+
+  .tracking-custom {
+    letter-spacing: -0.03em;
+  }
+
+  @media screen(sm) {
+    .hero-title {
+      font-size: 80px;
+      line-height: 1.05;
+    }
+  }
+}
+
+html {
+  @apply scroll-smooth;
 }
 
 body {
-  @apply dark:bg-black dark:text-white;
+  @apply dark:bg-main-black dark:text-white;
 }

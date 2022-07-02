@@ -4,8 +4,8 @@ import { FiArrowUpRight, FiMail } from 'react-icons/fi';
 export default function Email({ href, children }) {
   return (
     <Link href={href}>
-      <a className="group font-medium overflow-hidden inline-flex items-center space-x-6">
-        <span className="inline-flex justify-center items-center relative text-2xl border rounded-full p-4 dark:border-dark-gray">
+      <a className="group font-medium overflow-hidden inline-flex items-center">
+        <span className="hidden md:inline-flex justify-center items-center relative text-2xl border rounded-full p-4 mr-6 dark:border-dark-gray">
           <span className="inline-flex transform group-hover:-translate-y-12 transition">
             <FiMail />
           </span>

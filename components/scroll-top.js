@@ -1,20 +1,26 @@
 import cx from 'classnames';
 import useScrollPosition from '@react-hook/window-scroll';
 import { FiArrowUp } from 'react-icons/fi';
+import Button from './button';
 
 export default function ScrollTop() {
   const scrollPosition = useScrollPosition();
 
   return (
-    <button
+    <div
       className={cx(
-        'bg-white hover:bg-gray-100 active:bg-gray-50 text-zinc-800 shadow-md fixed bottom-8 right-8 text-xl p-4 rounded transition',
+        'fixed bottom-8 right-8 transition',
         scrollPosition < 200 && 'opacity-0 pointer-events-none',
       )}
-      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
     >
-      <span className="sr-only">Scroll to top</span>
-      <FiArrowUp />
-    </button>
+      <Button
+        href="#"
+        className={cx(
+          'dark:bg-main-black dark:text-white dark:border-dark-gray bg-white border p-4 space-x-0 rounded-full',
+        )}
+        firstIcon={<FiArrowUp />}
+        secondIcon={<FiArrowUp />}
+      />
+    </div>
   );
 }
