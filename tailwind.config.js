@@ -11,6 +11,7 @@ module.exports = {
     extend: {
       colors: {
         'dark-gray': '#ffffff24',
+        'main-black': '#0d0e10',
       },
       aspectRatio: {
         '4/3': '4 / 3',
