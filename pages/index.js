@@ -35,6 +35,7 @@ export default function Home({ repos, shots, homepage, seo }) {
           name="description"
           content={seo.fallbackSeo.description || meta.description}
         />
+        <meta name="google-site-verification" content="PJVvsin3qa5Ny-g9ZEY2T_D5HmfkG1IftdDqq41TH_g" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={meta.url} />
 
