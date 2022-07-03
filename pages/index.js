@@ -129,7 +129,7 @@ export default function Home({ repos, shots, homepage, seo }) {
             </p>
           </div>
           <div className="col-span-12 col-start-4 mt-8 md:mt-0">
-            <div className="flex overflow-scroll gap-6 sm:overflow-auto sm:grid sm:grid-cols-2 xl:grid-cols-3">
+            <div className="flex overflow-scroll gap-6 snap-mandatory snap-x sm:overflow-auto sm:grid sm:grid-cols-2 xl:grid-cols-3">
               {repos.slice(0, 6).map(RepoCard)}
             </div>
           </div>
@@ -151,7 +151,7 @@ export default function Home({ repos, shots, homepage, seo }) {
             </p>
           </div>
           <div className="col-span-12 col-start-4 mt-8 md:mt-0">
-            <div className="flex overflow-scroll gap-6 md:overflow-auto md:grid md:grid-cols-2 xl:grid-cols-3">
+            <div className="flex overflow-scroll gap-6 snap-mandatory snap-x md:overflow-auto md:grid md:grid-cols-2 xl:grid-cols-3">
               {shots.slice(0, 6).map(ShotCard)}
             </div>
           </div>

@@ -41,7 +41,7 @@ export default function RepoCard({
   return (
     <div
       key={id}
-      className="relative group h-full w-3/4 sm:w-full flex-shrink-0"
+      className="relative group h-full w-3/4 sm:w-full flex-shrink-0 snap-start"
     >
       <div className="aspect-3/2">
         <div className="card flex flex-col h-full w-full p-4 md:p-6">

@@ -16,7 +16,7 @@ export default function ShotCard({ id, title, images, html_url, tags }) {
   return (
     <div
       key={id}
-      className="relative group h-full w-3/4 md:w-full flex-shrink-0"
+      className="relative group h-full w-3/4 md:w-full flex-shrink-0 snap-start"
     >
       <div className="relative aspect-[4/3]">
         <Image
