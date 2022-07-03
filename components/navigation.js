@@ -70,7 +70,7 @@ export default function Navigation() {
       </ul>
       <ul
         className={cx(
-          show ? 'translate-y-0' : '-translate-y-full pointer-events-none',
+          show ? 'translate-y-0' : 'opactiy-0 -translate-y-full pointer-events-none',
           'bg-zinc-900 flex flex-col absolute top-32 left-0 -z-10 w-full transform origin-top transition md:hidden',
         )}
       >

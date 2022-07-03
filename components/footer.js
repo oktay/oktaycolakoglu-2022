@@ -54,7 +54,7 @@ export default function Footer() {
             <p className="flex-shrink-0">
               © {new Date().getFullYear()} &mdash; {meta.title}
             </p>
-            <p className="text-center mt-4 md:mt-0 md:ml-8 md:text-left">
+            <p className="text-center mt-4 md:mt-0 md:ml-8 md:text-right max-w-md">
               Bu proje{' '}
               <a
                 href="https://nextjs.org"
@@ -85,7 +85,37 @@ export default function Footer() {
               >
                 Github
               </a>{' '}
-              üzerinde paylaşıldı.
+              üzerinde paylaşıldı. CMS olarak{' '}
+              <a
+                href="https://www.datocms.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-black dark:text-white underline"
+                onClick={() => onCreditsClick('Dato CMS')}
+              >
+                Dato CMS
+              </a>
+              {' '}kullanıldı. Aktiviteler için{' '}
+              <a
+                href="https://docs.github.com/en/rest"
+                target="_blank"
+                rel="noreferrer"
+                className="text-black dark:text-white underline"
+                onClick={() => onCreditsClick('Github API')}
+              >
+                Github API
+              </a>{' '}
+              ve{' '}
+              <a
+                href="https://developer.dribbble.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-black dark:text-white underline"
+                onClick={() => onCreditsClick('Dribbböe API')}
+              >
+                Dribbble API
+              </a>{' '}
+              kullanıldı.
             </p>
           </div>
         </div>
