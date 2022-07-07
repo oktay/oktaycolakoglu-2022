@@ -1,7 +1,16 @@
 import { meta } from 'site.config';
 import { BsDribbble, BsGithub, BsLinkedin } from 'react-icons/bs';
+import {
+  SiDatocms,
+  SiDribbble,
+  SiGithub,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiVercel,
+} from 'react-icons/si';
 import SocialLink from '@comp/social-link';
 import Email from '@comp/email';
+import CreditsLink from './credits-link';
 
 export default function Footer() {
   const links = [
@@ -19,16 +28,38 @@ export default function Footer() {
     },
   ];
 
-  function onCreditsClick(label) {
-    const analyticsData = {
-      event: 'Click',
-      action: 'Credits Click',
-      target: 'Footer Credits',
-      label: label,
-    };
-
-    window.dataLayer.push(analyticsData);
-  }
+  const credits = [
+    {
+      href: 'https://nextjs.org',
+      label: 'Next.js',
+      icon: <SiNextdotjs />,
+    },
+    {
+      href: 'https://tailwindcss.com',
+      label: 'Tailwind CSS',
+      icon: <SiTailwindcss />,
+    },
+    {
+      href: 'https://www.datocms.com/',
+      label: 'Dato CMS',
+      icon: <SiDatocms />,
+    },
+    {
+      href: 'https://www.vercel.com/',
+      label: 'Vercel',
+      icon: <SiVercel />,
+    },
+    {
+      href: 'https://docs.github.com/en/rest',
+      label: 'Github API',
+      icon: <SiGithub />,
+    },
+    {
+      href: 'https://developer.dribbble.com/',
+      label: 'Dribbble API',
+      icon: <SiDribbble />,
+    },
+  ];
 
   return (
     <footer className="border-t pt-8 dark:border-t-dark-gray">
@@ -50,73 +81,15 @@ export default function Footer() {
       </div>
       <div className="py-4 mt-8">
         <div className="container-xl">
-          <div className="flex flex-col items-center md:flex-row justify-between text-gray-600 text-sm dark:text-gray-300">
-            <p className="flex-shrink-0">
-              © {new Date().getFullYear()} &mdash; {meta.title}
+          <div className="flex flex-col items-center md:flex-row justify-between text-zinc-500 dark:text-zinc-300">
+            <p className="flex-shrink-0 text-lg">
+              &copy; {new Date().getFullYear()} &mdash; {meta.title}
             </p>
-            <p className="text-center mt-4 md:mt-0 md:ml-8 md:text-right max-w-md">
-              Bu proje{' '}
-              <a
-                href="https://nextjs.org"
-                target="_blank"
-                rel="noreferrer"
-                className="text-black dark:text-white underline"
-                onClick={() => onCreditsClick('Next.js')}
-              >
-                Next JS
-              </a>{' '}
-              ve{' '}
-              <a
-                href="https://tailwindcss.com"
-                target="_blank"
-                rel="noreferrer"
-                className="text-black dark:text-white underline"
-                onClick={() => onCreditsClick('Tailwind CSS')}
-              >
-                Tailwind CSS
-              </a>{' '}
-              kullanılarak hazırlandı ve kaynak kodları{' '}
-              <a
-                href="https://github.com/oktay/oktaycolakoglu-2022"
-                target="_blank"
-                rel="noreferrer"
-                className="text-black dark:text-white underline"
-                onClick={() => onCreditsClick('Source Code')}
-              >
-                Github
-              </a>{' '}
-              üzerinde paylaşıldı. CMS olarak{' '}
-              <a
-                href="https://www.datocms.com/"
-                target="_blank"
-                rel="noreferrer"
-                className="text-black dark:text-white underline"
-                onClick={() => onCreditsClick('Dato CMS')}
-              >
-                Dato CMS
-              </a>
-              {' '}kullanıldı. Aktiviteler için{' '}
-              <a
-                href="https://docs.github.com/en/rest"
-                target="_blank"
-                rel="noreferrer"
-                className="text-black dark:text-white underline"
-                onClick={() => onCreditsClick('Github API')}
-              >
-                Github API
-              </a>{' '}
-              ve{' '}
-              <a
-                href="https://developer.dribbble.com/"
-                target="_blank"
-                rel="noreferrer"
-                className="text-black dark:text-white underline"
-                onClick={() => onCreditsClick('Dribbböe API')}
-              >
-                Dribbble API
-              </a>{' '}
-              kullanıldı.
-            </p>
+            <div className="flex justify-center space-x-4 mt-8 md:mt-0">
+              {credits.map(({ href, label, icon }) => (
+                <CreditsLink key={href} href={href} label={label} icon={icon} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
