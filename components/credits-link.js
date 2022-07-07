@@ -11,12 +11,12 @@ export default function CreditsLink({ href, label, icon }) {
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="inline-flex p-2 rounded-full hover:bg-gray-100 dark:hover:bg-dark-gray"
+      className="text-xs inline-flex items-center space-x-2 px-2 py-1 rounded-full hover:bg-gray-100 dark:hover:bg-dark-gray"
       title={label}
       onClick={() => window.dataLayer.push(analyticsData)}
     >
-      <span className="sr-only">{label}</span>
-      <span className="text-xl">{icon}</span>
+      <span className="text-sm rounded-full">{icon}</span>
+      <span>{label}</span>
     </a>
   );
 }

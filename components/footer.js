@@ -30,6 +30,11 @@ export default function Footer() {
 
   const credits = [
     {
+      href: 'https://www.vercel.com/',
+      label: 'Vercel',
+      icon: <SiVercel />,
+    },
+    {
       href: 'https://nextjs.org',
       label: 'Next.js',
       icon: <SiNextdotjs />,
@@ -43,11 +48,6 @@ export default function Footer() {
       href: 'https://www.datocms.com/',
       label: 'Dato CMS',
       icon: <SiDatocms />,
-    },
-    {
-      href: 'https://www.vercel.com/',
-      label: 'Vercel',
-      icon: <SiVercel />,
     },
     {
       href: 'https://docs.github.com/en/rest',
@@ -85,7 +85,7 @@ export default function Footer() {
             <p className="flex-shrink-0 text-lg">
               &copy; {new Date().getFullYear()} &mdash; {meta.title}
             </p>
-            <div className="flex justify-center space-x-4 mt-8 md:mt-0">
+            <div className="flex flex-wrap justify-center space-x-4 mt-8 md:mt-0">
               {credits.map(({ href, label, icon }) => (
                 <CreditsLink key={href} href={href} label={label} icon={icon} />
               ))}
