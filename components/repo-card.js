@@ -59,11 +59,11 @@ export default function RepoCard({
             {description || 'No description'}
           </p>
           {topics.length > 0 && (
-            <div className="hidden lg:flex flex-wrap gap-2 mt-4">
+            <div className="flex overflow-auto lg:flex-wrap gap-2 mt-4">
               {topics.map((topic) => (
                 <span
                   key={topic}
-                  className="badge text-xs bg-teal-100 text-teal-700 border-teal-200"
+                  className="whitespace-nowrap badge text-xs bg-teal-100 text-teal-700 border-teal-200"
                 >
                   {topic}
                 </span>
