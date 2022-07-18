@@ -1,15 +1,18 @@
 import { useState } from 'react';
 import { FiMenu } from 'react-icons/fi';
+import { useTranslations } from 'next-intl';
 import Button from '@comp/button';
 import cx from 'classnames';
+import LocaleSwitch from './locale-switch';
 
 export default function Navigation() {
   const [show, setShow] = useState(false);
+  const t = useTranslations('Global');
 
   const links = [
     {
       href: '#hero',
-      label: 'Home',
+      label: t('home'),
     },
     {
       href: '#github',
@@ -44,15 +47,15 @@ export default function Navigation() {
   }
 
   return (
-    <nav>
+    <nav className="flex items-center">
       <Button
-        className="text-xl p-4 border border-zinc-600 md:hidden"
+        className="text-xl p-4 border border-zinc-600 lg:hidden"
         onClick={() => setShow(!show)}
       >
         <span className="sr-only">Menu</span>
         <FiMenu />
       </Button>
-      <ul className="space-x-16 hidden md:flex">
+      <ul className="space-x-16 hidden lg:flex">
         {links.map(({ href, label }) => (
           <li key={href}>
             <a
@@ -64,11 +67,12 @@ export default function Navigation() {
             </a>
           </li>
         ))}
+        <LocaleSwitch />
       </ul>
       <ul
         className={cx(
-          show ? 'translate-y-0' : 'opactiy-0 -translate-y-full pointer-events-none',
-          'bg-zinc-900 flex flex-col absolute top-32 left-0 -z-10 w-full transform origin-top transition md:hidden',
+          show ? 'translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none',
+          'bg-zinc-900 flex flex-col absolute top-32 left-0 -z-10 w-full transform origin-top transition lg:hidden',
         )}
       >
         {links.map(({ href, label }) => (
@@ -82,6 +86,9 @@ export default function Navigation() {
             </a>
           </li>
         ))}
+        <li className="bg-white px-12 py-4">
+          <LocaleSwitch />
+        </li>
       </ul>
     </nav>
   );

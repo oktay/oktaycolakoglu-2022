@@ -11,8 +11,11 @@ import { fetchRepos, fetchShots, request } from '@lib/data';
 import { meta } from 'site.config';
 import { FiArrowUpRight, FiMail } from 'react-icons/fi';
 import { BsDribbble, BsGithub } from 'react-icons/bs';
+import { useTranslations } from 'next-intl';
 
 export default function Home({ repos, shots, homepage, seo }) {
+  const t = useTranslations('Global')
+
   function onEmailClick() {
     const analyticsData = {
       event: 'Click',
@@ -113,7 +116,7 @@ export default function Home({ repos, shots, homepage, seo }) {
               firstIcon={<FiMail />}
               secondIcon={<FiArrowUpRight />}
             >
-              İletişime Geç
+              {t('contact')}
             </Button>
           </div>
         </section>
@@ -128,7 +131,7 @@ export default function Home({ repos, shots, homepage, seo }) {
               <span className="sr-only">Github</span>
             </figure>
             <p className="text-xl ml-4 md:ml-0 md:text-2xl md:mt-6">
-              Github&rsquo;dan son hareketler
+              {t('github')}
             </p>
           </div>
           <div className="col-span-12 col-start-4 mt-8 md:mt-0">
@@ -150,7 +153,7 @@ export default function Home({ repos, shots, homepage, seo }) {
               <span className="sr-only">Dribbble</span>
             </figure>
             <p className="text-xl ml-4 md:ml-0 md:text-2xl md:mt-6">
-              En son dribbble&rsquo;a yolladıklarım
+              {t('dribbble')}
             </p>
           </div>
           <div className="col-span-12 col-start-4 mt-8 md:mt-0">
@@ -167,19 +170,19 @@ export default function Home({ repos, shots, homepage, seo }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ locale }) {
   const repos = await fetchRepos({ sort: 'updated' });
   const shots = await fetchShots();
   const data = await request({
-    query: `{
-      homepage(locale: tr) {
+    query: `query HomeQuery($locale: SiteLocale) {
+      homepage(locale: $locale) {
         title
         subtitle
         description
         available
       }
       site: _site {
-        globalSeo(locale: tr) {
+        globalSeo(locale: $locale) {
           titleSuffix
           twitterAccount
           fallbackSeo {
@@ -189,6 +192,7 @@ export async function getServerSideProps() {
         }
       }
     }`,
+    variables: { locale },
   });
 
   return {
@@ -197,6 +201,7 @@ export async function getServerSideProps() {
       shots,
       homepage: data.homepage,
       seo: data.site.globalSeo,
+      messages: (await import(`../locales/${locale}.json`)).default,
     },
   };
 }
