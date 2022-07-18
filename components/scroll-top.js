@@ -15,12 +15,12 @@ export default function ScrollTop() {
     >
       <Button
         href="#"
-        className={cx(
-          'dark:bg-main-black dark:text-white dark:border-dark-gray bg-white border p-4 space-x-0 rounded-full',
-        )}
+        className="dark:bg-main-black dark:text-white dark:border-dark-gray bg-white border p-4 space-x-0 rounded-full"
         firstIcon={<FiArrowUp />}
         secondIcon={<FiArrowUp />}
-      />
+      >
+        <span className="sr-only">Scroll to top</span>
+      </Button>
     </div>
   );
 }
