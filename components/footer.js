@@ -73,8 +73,8 @@ export default function Footer() {
             ))}
           </ul>
           <div className="hidden md:block">
-            <Email href="mailto:oktaycolakoglu@gmail.com">
-              oktaycolakoglu@gmail.com
+            <Email href={`mailto:${meta.email}`}>
+              {meta.email}
             </Email>
           </div>
         </div>
@@ -85,11 +85,13 @@ export default function Footer() {
             <p className="flex-shrink-0 text-lg">
               &copy; {new Date().getFullYear()} &mdash; {meta.title}
             </p>
-            <div className="flex flex-wrap justify-center space-x-4 mt-8 md:mt-0">
+            <ul className="flex flex-wrap justify-center space-x-4 mt-8 md:mt-0">
               {credits.map(({ href, label, icon }) => (
-                <CreditsLink key={href} href={href} label={label} icon={icon} />
+                <li key={href}>
+                  <CreditsLink href={href} label={label} icon={icon} />
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
       </div>
