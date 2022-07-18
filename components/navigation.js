@@ -58,12 +58,9 @@ export default function Navigation() {
             <a
               href={href}
               className="inline-flex items-center space-x-4 font-medium"
-              // target="_blank"
-              // rel="noreferrer"
               onClick={() => onClick(label)}
             >
               <span>{label}</span>
-              {/* <FiArrowUpRight /> */}
             </a>
           </li>
         ))}

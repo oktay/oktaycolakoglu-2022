@@ -35,7 +35,10 @@ export default function Home({ repos, shots, homepage, seo }) {
           name="description"
           content={seo.fallbackSeo.description || meta.description}
         />
-        <meta name="google-site-verification" content="PJVvsin3qa5Ny-g9ZEY2T_D5HmfkG1IftdDqq41TH_g" />
+        <meta
+          name="google-site-verification"
+          content="PJVvsin3qa5Ny-g9ZEY2T_D5HmfkG1IftdDqq41TH_g"
+        />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={meta.url} />
 
@@ -104,7 +107,7 @@ export default function Home({ repos, shots, homepage, seo }) {
               {homepage.description}
             </p>
             <Button
-              href="mailto:oktaycolakoglu@gmail.com"
+              href={`mailto:${meta.email}`}
               className="bg-black text-white dark:bg-white dark:text-black text-sm font-bold"
               onClick={onEmailClick}
               firstIcon={<FiMail />}
