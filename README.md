@@ -1,34 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# oktaycolakoglu-2022
 
-## Getting Started
+My personal homepage with NextJS & Tailwind CSS
 
-First, run the development server:
+## Description
 
-```bash
-npm run dev
-# or
-yarn dev
+This project made with Next JS, uses Tailwind CSS for styling. It's a personal homepage for me. It's a simple project with only one page and it uses Dato CMS for content management, Github API for show Github activities, and Dribbble API for show last dribbble shots.
+
+## Installation
+
+You must provide all API keys and tokens to use this project. You can see the list in [.env.local.example](./.env.local.example) file.
+You need create schemas and fields like in this project on Dato CMS, but instead of it you can remove all cms content and make all content hardcoded.
+
+```
+DRIBBBLE_TOKEN=XXXXXXXX
+GITHUB_TOKEN=XXXXXXXXX
+DATOCMS_TOKEN=XXXXXXXXXXX
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> Note: When its in development mode it will show dummy data for dribbble and github to reduce requests.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Start project
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+```
+npm install
+npm run dev
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Authors
 
-## Learn More
+Contributors names and contact info
 
-To learn more about Next.js, take a look at the following resources:
+- [@oktay](https://github.com/oktay)
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Sources
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+* [NextJS](https://nextjs.org/)
+* [Tailwind CSS](https://tailwindcss.com/)
+* [Dato CMS](https://www.datocms.com/docs/next-js)
+* [Github API](https://docs.github.com/en/rest)
+* [Dribbble API](https://developer.dribbble.com/v2/)
+* [Next-Intl](https://www.thisdot.co/blog/next-js-adding-localization-with-next-intl)
