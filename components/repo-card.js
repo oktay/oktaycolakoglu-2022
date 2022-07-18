@@ -63,7 +63,7 @@ export default function RepoCard({
               {topics.map((topic) => (
                 <span
                   key={topic}
-                  className="whitespace-nowrap badge text-xs bg-teal-100 text-teal-700 border-teal-200"
+                  className="whitespace-nowrap badge text-xs bg-theme-100 text-theme-700 border-theme-200"
                 >
                   {topic}
                 </span>
@@ -92,7 +92,7 @@ export default function RepoCard({
                 className="flex items-center ml-auto whitespace-nowrap text-ellipsis overflow-hidden"
               >
                 <BsLink45Deg className="text-xl flex-shrink-0" />
-                <span className="text-teal-700 font-semibold text-xs whitespace-nowrap text-ellipsis overflow-hidden">
+                <span className="text-theme-700 font-semibold text-xs whitespace-nowrap text-ellipsis overflow-hidden">
                   {homepage}
                 </span>
               </a>
