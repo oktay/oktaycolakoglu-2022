@@ -4,7 +4,8 @@ module.exports = {
     domains: ['cdn.dribbble.com'],
   },
   i18n: {
-    locales: ['tr'],
+    locales: ['tr', 'en'],
     defaultLocale: 'tr',
+    localeDetection: false,
   },
 };
