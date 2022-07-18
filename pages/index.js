@@ -56,6 +56,7 @@ export default function Home({ repos, shots, homepage, seo }) {
           property="og:description"
           content={seo.fallbackSeo.description || meta.description}
         />
+        <meta property="og:image" content="/thumbnail.png" />
 
         {/* twitter */}
         <meta name="twitter:card" content="summary" />
@@ -68,6 +69,7 @@ export default function Home({ repos, shots, homepage, seo }) {
           name="twitter:description"
           content={seo.fallbackSeo.description || meta.description}
         />
+        <meta name="twitter:image" content="/thumbnail.png" />
       </Head>
 
       <Script id="google-analytics" strategy="afterInteractive">
