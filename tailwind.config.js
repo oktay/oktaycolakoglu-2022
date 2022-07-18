@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   mode: 'jit',
   content: [
@@ -12,6 +14,7 @@ module.exports = {
       colors: {
         'dark-gray': '#ffffff24',
         'main-black': '#0d0e10',
+        'theme': colors.teal,
       },
       aspectRatio: {
         '4/3': '4 / 3',

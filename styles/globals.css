@@ -32,7 +32,7 @@
   }
 
   .card {
-    @apply bg-white text-zinc-700 border-2 border-b-8 rounded-xl border-gray-100  hover:border-teal-400;
+    @apply bg-white text-zinc-700 border-2 border-b-8 rounded-xl border-gray-100  hover:border-theme-400;
   }
 
   .overlay {
@@ -76,7 +76,7 @@
 }
 
 html {
-  @apply scroll-smooth selection:bg-teal-400;
+  @apply scroll-smooth selection:bg-theme-400;
 }
 
 body {

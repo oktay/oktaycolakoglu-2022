@@ -32,7 +32,7 @@ export default function ShotCard({ id, title, images, html_url, tags }) {
         onClick={onClick}
         target="_blank"
         rel="noreferrer"
-        className="overlay bg-teal-400 bg-opacity-90 flex opacity-0 group-hover:opacity-100"
+        className="overlay bg-theme-400 bg-opacity-90 flex opacity-0 group-hover:opacity-100"
       >
         <div className="p-8 self-end">
           <div>
