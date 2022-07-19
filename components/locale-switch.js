@@ -10,7 +10,7 @@ export default function LocaleSwitch() {
 
   return (
     <Link href={route} locale={locale === 'tr' ? 'en' : 'tr'}>
-      <a className="w-full bg-white text-black p-1 pl-2 rounded-full text-xs tracking-widest font-bold inline-flex items-center group">
+      <a className="w-full bg-black text-white dark:bg-white dark:text-black p-1 pl-2 rounded-full text-xs tracking-widest font-bold inline-flex items-center group">
         <HiTranslate className="text-lg mr-2 lg:group-hover:text-theme-400 transition" />
         <span className="mr-auto uppercase lg:sr-only">{t('lang')}</span>
         <span className="relative">
@@ -18,8 +18,8 @@ export default function LocaleSwitch() {
             className={cx(
               'relative px-2 z-10 transition',
               locale === 'tr'
-                ? 'text-white'
-                : 'text-black lg:group-hover:text-theme-400',
+                ? 'text-black dark:text-white'
+                : 'text-white dark:text-black lg:group-hover:text-theme-400',
             )}
           >
             TR
@@ -28,8 +28,8 @@ export default function LocaleSwitch() {
             className={cx(
               'relative px-2 z-10 transition',
               locale === 'en'
-                ? 'text-white'
-                : 'text-black lg:group-hover:text-theme-400',
+                ? 'text-black dark:text-white'
+                : 'text-white dark:text-black lg:group-hover:text-theme-400',
             )}
           >
             EN

@@ -33,7 +33,7 @@ export default function ShotCard({ id, title, images, html_url, tags }) {
         rel="noreferrer"
         className="opacity-0 group-hover:opacity-100 transition-all"
       >
-        <div className="absolute inset-0 overlay rounded-lg">
+        <div className="absolute inset-0 overlay rounded-lg text-white">
           <div className="w-full h-full p-8 flex flex-col justify-end">
             <strong className="text-xl font-bold truncate">{title}</strong>
           </div>
