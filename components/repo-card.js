@@ -1,9 +1,4 @@
-import {
-  BsStar,
-  BsEye,
-  // BsFileEarmarkCode,
-  BsLink45Deg,
-} from 'react-icons/bs';
+import { BsStar, BsEye, BsFileEarmarkCode } from 'react-icons/bs';
 
 export default function RepoCard({
   id,
@@ -11,11 +6,11 @@ export default function RepoCard({
   description,
   stargazers_count,
   watchers_count,
-  // language,
+  language,
   html_url,
   fork,
-  homepage,
-  topics,
+  // homepage,
+  // topics,
 }) {
   function onClick() {
     const analyticsData = {
@@ -28,16 +23,17 @@ export default function RepoCard({
     window.dataLayer.push(analyticsData);
   }
 
-  function onHomepageClick() {
-    const analyticsData = {
-      event: 'Click',
-      action: 'Repository Homepage Click',
-      target: 'Github Section Repository Card',
-      label: homepage,
-    };
+  // function onHomepageClick() {
+  //   const analyticsData = {
+  //     event: 'Click',
+  //     action: 'Repository Homepage Click',
+  //     target: 'Github Section Repository Card',
+  //     label: homepage,
+  //   };
 
-    window.dataLayer.push(analyticsData);
-  }
+  //   window.dataLayer.push(analyticsData);
+  // }
+
   return (
     <div
       key={id}
@@ -55,48 +51,22 @@ export default function RepoCard({
             <span className="truncate">{name}</span>
             {fork && <span className="badge">FORK</span>}
           </a>
-          <p className="text-sm mt-2 text-zinc-500 truncate">
+          <p className="text-sm mt-2 text-zinc-500">
             {description || 'No description'}
           </p>
-          {topics.length > 0 && (
-            <div className="flex overflow-auto lg:flex-wrap gap-2 mt-4">
-              {topics.map((topic) => (
-                <span
-                  key={topic}
-                  className="whitespace-nowrap badge text-xs bg-theme-100 text-theme-700 border-theme-200"
-                >
-                  {topic}
-                </span>
-              ))}
-            </div>
-          )}
-          <div className="flex items-center gap-2 mt-auto">
-            {/* <div className="text-xs inline-flex items-center gap-1">
+          <div className="flex items-center mt-auto">
+            <div className="text-sm inline-flex items-center gap-1 mr-4">
               <BsFileEarmarkCode />
               <span>{language || 'Mixed'}</span>
-            </div> */}
-            <div className="text-xs inline-flex items-center gap-1">
+            </div>
+            <div className="text-sm inline-flex items-center gap-1 mr-2">
               <BsStar />
               <span>{stargazers_count}</span>
             </div>
-            <div className="text-xs inline-flex items-center gap-1">
+            <div className="text-sm inline-flex items-center gap-1 mr-2">
               <BsEye />
               <span>{watchers_count}</span>
             </div>
-            {homepage && (
-              <a
-                href={homepage}
-                onClick={onHomepageClick}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center ml-auto whitespace-nowrap text-ellipsis overflow-hidden"
-              >
-                <BsLink45Deg className="text-xl flex-shrink-0" />
-                <span className="text-theme-700 font-semibold text-xs whitespace-nowrap text-ellipsis overflow-hidden">
-                  {homepage}
-                </span>
-              </a>
-            )}
           </div>
         </div>
       </div>

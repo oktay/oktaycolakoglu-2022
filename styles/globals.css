@@ -36,7 +36,7 @@
   }
 
   .overlay {
-    @apply absolute inset-0 text-white transition;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
   }
 }
 
