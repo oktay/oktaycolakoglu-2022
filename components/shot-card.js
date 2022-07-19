@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { FiArrowUpRight } from 'react-icons/fi';
 
 export default function ShotCard({ id, title, images, html_url, tags }) {
   function onClick() {
@@ -18,13 +17,13 @@ export default function ShotCard({ id, title, images, html_url, tags }) {
       key={id}
       className="relative group h-full w-3/4 md:w-full flex-shrink-0 snap-start"
     >
-      <div className="relative aspect-[4/3]">
+      <div className="aspect-[4/3]">
         <Image
           src={images.two_x}
           alt={title}
           layout="fill"
           priority="low"
-          className="trasnform transition duration-1000 group-hover:scale-125"
+          className="rounded-lg"
         />
       </div>
       <a
@@ -32,17 +31,13 @@ export default function ShotCard({ id, title, images, html_url, tags }) {
         onClick={onClick}
         target="_blank"
         rel="noreferrer"
-        className="overlay bg-theme-400 bg-opacity-90 flex opacity-0 group-hover:opacity-100"
+        className="opacity-0 group-hover:opacity-100 transition-all"
       >
-        <div className="p-8 self-end">
-          <div>
-            <strong className="text-xl font-bold">{title}</strong>
-            <p className="space-x-2 text-sm">
-              {tags.map((tag) => `#${tag}`).join(', ')}
-            </p>
+        <div className="absolute inset-0 overlay rounded-lg">
+          <div className="w-full h-full p-8 flex flex-col justify-end">
+            <strong className="text-xl font-bold truncate">{title}</strong>
           </div>
         </div>
-        <FiArrowUpRight className="text-7xl absolute top-8 left-8" />
       </a>
     </div>
   );

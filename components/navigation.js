@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { FiMenu } from 'react-icons/fi';
 import { useTranslations } from 'next-intl';
-import Button from '@comp/button';
+import Button from '@components/button';
 import cx from 'classnames';
 import LocaleSwitch from './locale-switch';
 

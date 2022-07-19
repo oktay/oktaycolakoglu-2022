@@ -1,12 +1,12 @@
 import Head from 'next/head';
 import Script from 'next/script';
-import Footer from '@comp/footer';
-import Header from '@comp/header';
-import Avatar from '@comp/avatar';
-import RepoCard from '@comp/repo-card';
-import ShotCard from '@comp/shot-card';
-import Button from '@comp/button';
-import ScrollTop from '@comp/scroll-top';
+import Footer from '@components/footer';
+import Header from '@components/header';
+import Avatar from '@components/avatar';
+import RepoCard from '@components/repo-card';
+import ShotCard from '@components/shot-card';
+import Button from '@components/button';
+import ScrollTop from '@components/scroll-top';
 import { fetchRepos, fetchShots, request } from '@lib/data';
 import { meta } from 'site.config';
 import { FiArrowUpRight, FiMail } from 'react-icons/fi';
@@ -14,7 +14,7 @@ import { BsDribbble, BsGithub } from 'react-icons/bs';
 import { useTranslations } from 'next-intl';
 
 export default function Home({ repos, shots, homepage, seo }) {
-  const t = useTranslations('Global')
+  const t = useTranslations('Global');
 
   function onEmailClick() {
     const analyticsData = {
@@ -44,9 +44,23 @@ export default function Home({ repos, shots, homepage, seo }) {
         />
         <meta name="msapplication-TileColor" content="#2dd4bf" />
         <meta name="theme-color" content="#0d0e10" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=1" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=1" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=1" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png?v=1"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png?v=1"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png?v=1"
+        />
         <link rel="manifest" href="/site.webmanifest?v=1" />
         <link rel="shortcut icon" href="/favicon.ico?v=1" />
         <link rel="canonical" href={meta.url} />

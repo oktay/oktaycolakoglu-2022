@@ -8,8 +8,8 @@ import {
   SiTailwindcss,
   SiVercel,
 } from 'react-icons/si';
-import SocialLink from '@comp/social-link';
-import Email from '@comp/email';
+import SocialLink from '@components/social-link';
+import Email from '@components/email';
 import CreditsLink from './credits-link';
 
 export default function Footer() {

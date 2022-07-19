@@ -1,5 +1,5 @@
-import Navigation from '@comp/navigation';
-import Email from '@comp/email';
+import Navigation from '@components/navigation';
+import Email from '@components/email';
 import { meta } from 'site.config';
 
 export default function Header() {
