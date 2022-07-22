@@ -5,15 +5,17 @@ import Header from '@components/header';
 import Avatar from '@components/avatar';
 import RepoCard from '@components/repo-card';
 import ShotCard from '@components/shot-card';
+import ProjectCard from '@components/project-card';
 import Button from '@components/button';
 import ScrollTop from '@components/scroll-top';
 import { fetchRepos, fetchShots, request } from '@lib/data';
+import { projectFragment } from '@lib/fragments';
 import { meta } from 'site.config';
 import { FiArrowUpRight, FiMail } from 'react-icons/fi';
-import { BsDribbble, BsGithub } from 'react-icons/bs';
+import { BsCode, BsDribbble, BsGithub } from 'react-icons/bs';
 import { useTranslations } from 'next-intl';
 
-export default function Home({ repos, shots, homepage, seo }) {
+export default function Home({ repos, shots, projects, homepage, seo }) {
   const t = useTranslations('Global');
 
   function onEmailClick() {
@@ -184,6 +186,28 @@ export default function Home({ repos, shots, homepage, seo }) {
             </div>
           </div>
         </section>
+
+        <hr className="border-transparent my-8 md:my-16" />
+
+        <section
+          id="projects"
+          className="container-xl md:grid md:grid-cols-12 scroll-m-36"
+        >
+          <div className="flex items-center md:block md:col-span-2">
+            <figure>
+              <BsCode className="text-3xl md:text-5xl" />
+              <span className="sr-only">Code</span>
+            </figure>
+            <p className="text-xl ml-4 md:ml-0 md:text-2xl md:mt-6">
+              {t('projects')}
+            </p>
+          </div>
+          <div className="col-span-12 col-start-4 mt-8 md:mt-0">
+            <div className="flex flex-col">
+              {projects.map(ProjectCard)}
+            </div>
+          </div>
+        </section>
       </main>
 
       <Footer />
@@ -213,7 +237,12 @@ export async function getServerSideProps({ locale }) {
           }
         }
       }
-    }`,
+      projects: allProjects(locale: $locale) {
+        ...ProjectFragment
+      }
+    }
+    ${projectFragment}
+    `,
     variables: { locale },
   });
 
@@ -221,6 +250,7 @@ export async function getServerSideProps({ locale }) {
     props: {
       repos,
       shots,
+      projects: data.projects,
       homepage: data.homepage,
       seo: data.site.globalSeo,
       messages: (await import(`../locales/${locale}.json`)).default,

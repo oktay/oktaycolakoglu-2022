@@ -22,6 +22,10 @@ export default function Navigation() {
       href: '#dribbble',
       label: 'Dribbble',
     },
+    {
+      href: '#projects',
+      label: t('nav-projects'),
+    },
   ];
 
   function onClick(label) {

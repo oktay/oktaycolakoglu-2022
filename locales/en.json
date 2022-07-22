@@ -1,8 +1,10 @@
 {
   "Global": {
     "home": "Home",
+    "nav-projects": "Projects",
     "github": "Last activities from Github",
     "dribbble": "Last shots on Dribbble",
+    "projects": "Last developed projetcs",
     "contact": "Get in Touch",
     "scroll": "Scroll to top",
     "lang": "Language"
