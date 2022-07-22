@@ -1,7 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['cdn.dribbble.com'],
+    domains: ['cdn.dribbble.com', 'www.datocms-assets.com'],
   },
   i18n: {
     locales: ['tr', 'en'],
