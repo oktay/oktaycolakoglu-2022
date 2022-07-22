@@ -1,4 +1,4 @@
-import cx from 'classnames';
+import cx from 'classnames'
 
 export default function Button({
   className,
@@ -35,5 +35,5 @@ export default function Button({
         </span>
       </span>
     </a>
-  );
+  )
 }

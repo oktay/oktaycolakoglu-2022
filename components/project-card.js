@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/image'
 
 export default function ProjectCard({
   id,
@@ -14,9 +14,9 @@ export default function ProjectCard({
       action: 'Project Click',
       target: 'Project Card',
       label: title,
-    };
+    }
 
-    window.dataLayer.push(analyticsData);
+    window.dataLayer.push(analyticsData)
   }
   return (
     <div key={id} className="relative rounded-lg overflow-hidden">
@@ -26,7 +26,10 @@ export default function ProjectCard({
       <div className="absolute inset-0 flex flex-col p-8">
         <ul className="flex justify-end space-x-4">
           {tags.split(',').map((tag, index) => (
-            <li key={index} className="bg-white border dark:border-0 dark:bg-black dark:text-white px-2 rounded-full">
+            <li
+              key={index}
+              className="bg-white border dark:border-0 dark:bg-black dark:text-white px-2 rounded-full"
+            >
               <span className="text-zinc-400">#</span>
               {tag}
             </li>
@@ -37,7 +40,13 @@ export default function ProjectCard({
           <p className="text-zinc-600 dark:text-zinc-200">{description}</p>
         </div>
       </div>
-      <a href={url} onClick={onClick} target="_blank" rel="noreferrer" className="absolute inset-0"></a>
+      <a
+        href={url}
+        onClick={onClick}
+        target="_blank"
+        rel="noreferrer"
+        className="absolute inset-0"
+      ></a>
     </div>
-  );
+  )
 }

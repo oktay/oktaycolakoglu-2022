@@ -4,7 +4,7 @@ export default function CreditsLink({ href, label, icon }) {
     action: 'Credits Click',
     target: 'Footer Credits',
     label: label,
-  };
+  }
 
   return (
     <a
@@ -18,5 +18,5 @@ export default function CreditsLink({ href, label, icon }) {
       <span className="text-sm rounded-full">{icon}</span>
       <span>{label}</span>
     </a>
-  );
+  )
 }

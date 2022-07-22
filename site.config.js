@@ -19,4 +19,4 @@ export const meta = {
       username: 'oktaycolakoglu',
     },
   },
-};
+}

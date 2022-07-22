@@ -1,5 +1,5 @@
-import { meta } from 'site.config';
-import { BsDribbble, BsGithub, BsLinkedin } from 'react-icons/bs';
+import { meta } from 'site.config'
+import { BsDribbble, BsGithub, BsLinkedin } from 'react-icons/bs'
 import {
   SiDatocms,
   SiDribbble,
@@ -7,10 +7,10 @@ import {
   SiNextdotjs,
   SiTailwindcss,
   SiVercel,
-} from 'react-icons/si';
-import SocialLink from '@components/social-link';
-import Email from '@components/email';
-import CreditsLink from './credits-link';
+} from 'react-icons/si'
+import SocialLink from '@components/social-link'
+import Email from '@components/email'
+import CreditsLink from './credits-link'
 
 export default function Footer() {
   const links = [
@@ -26,7 +26,7 @@ export default function Footer() {
       ...meta.socials.dribbble,
       icon: <BsDribbble />,
     },
-  ];
+  ]
 
   const credits = [
     {
@@ -59,7 +59,7 @@ export default function Footer() {
       label: 'Dribbble API',
       icon: <SiDribbble />,
     },
-  ];
+  ]
 
   return (
     <footer className="border-t pt-8 dark:border-t-dark-gray">
@@ -73,9 +73,7 @@ export default function Footer() {
             ))}
           </ul>
           <div className="hidden md:block">
-            <Email href={`mailto:${meta.email}`}>
-              {meta.email}
-            </Email>
+            <Email href={`mailto:${meta.email}`}>{meta.email}</Email>
           </div>
         </div>
       </div>
@@ -96,5 +94,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  );
+  )
 }

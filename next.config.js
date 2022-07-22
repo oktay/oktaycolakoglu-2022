@@ -8,4 +8,4 @@ module.exports = {
     defaultLocale: 'tr',
     localeDetection: false,
   },
-};
+}

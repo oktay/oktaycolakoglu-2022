@@ -4,7 +4,7 @@ export default function SocialLink({ href, label, icon }) {
     action: 'Social Link Click',
     target: 'Footer Social Links',
     label: label,
-  };
+  }
 
   return (
     <a
@@ -17,5 +17,5 @@ export default function SocialLink({ href, label, icon }) {
       <span className="sr-only">{label}</span>
       <span className="text-2xl">{icon}</span>
     </a>
-  );
+  )
 }

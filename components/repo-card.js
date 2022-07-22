@@ -1,4 +1,4 @@
-import { BsStar, BsEye, BsFileEarmarkCode } from 'react-icons/bs';
+import { BsStar, BsEye, BsFileEarmarkCode } from 'react-icons/bs'
 
 export default function RepoCard({
   id,
@@ -18,9 +18,9 @@ export default function RepoCard({
       action: 'Repository Click',
       target: 'Github Section Repository Card',
       label: name,
-    };
+    }
 
-    window.dataLayer.push(analyticsData);
+    window.dataLayer.push(analyticsData)
   }
 
   // function onHomepageClick() {
@@ -71,5 +71,5 @@ export default function RepoCard({
         </div>
       </div>
     </div>
-  );
+  )
 }

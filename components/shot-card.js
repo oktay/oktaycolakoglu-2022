@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/image'
 
 export default function ShotCard({ id, title, images, html_url, tags }) {
   function onClick() {
@@ -7,9 +7,9 @@ export default function ShotCard({ id, title, images, html_url, tags }) {
       action: 'Shot Click',
       target: 'Dribbble Section Shot Card',
       label: title,
-    };
+    }
 
-    window.dataLayer.push(analyticsData);
+    window.dataLayer.push(analyticsData)
   }
 
   return (
@@ -40,5 +40,5 @@ export default function ShotCard({ id, title, images, html_url, tags }) {
         </div>
       </a>
     </div>
-  );
+  )
 }

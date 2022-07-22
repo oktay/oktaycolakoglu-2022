@@ -1,7 +1,7 @@
 export default function handler(_req, res) {
   if (process.env.NODE_ENV === 'production') {
-    res.status(404).send('Not found');
-    return;
+    res.status(404).send('Not found')
+    return
   }
 
   res.status(200).json({
@@ -2663,5 +2663,5 @@ export default function handler(_req, res) {
         },
       },
     ],
-  });
+  })
 }

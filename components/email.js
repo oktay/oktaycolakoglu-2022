@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import { FiArrowUpRight, FiMail } from 'react-icons/fi';
+import Link from 'next/link'
+import { FiArrowUpRight, FiMail } from 'react-icons/fi'
 
 export default function Email({ href, children }) {
   return (
@@ -16,5 +16,5 @@ export default function Email({ href, children }) {
         <span className="text-lg font-semibold">{children}</span>
       </a>
     </Link>
-  );
+  )
 }

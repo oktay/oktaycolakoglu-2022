@@ -1,6 +1,6 @@
-import Navigation from '@components/navigation';
-import Email from '@components/email';
-import { meta } from 'site.config';
+import Navigation from '@components/navigation'
+import Email from '@components/email'
+import { meta } from 'site.config'
 
 export default function Header() {
   return (
@@ -14,5 +14,5 @@ export default function Header() {
         </div>
       </header>
     </div>
-  );
+  )
 }

@@ -1,22 +1,22 @@
-import Head from 'next/head';
-import Script from 'next/script';
-import Footer from '@components/footer';
-import Header from '@components/header';
-import Avatar from '@components/avatar';
-import RepoCard from '@components/repo-card';
-import ShotCard from '@components/shot-card';
-import ProjectCard from '@components/project-card';
-import Button from '@components/button';
-import ScrollTop from '@components/scroll-top';
-import { fetchRepos, fetchShots, request } from '@lib/data';
-import { projectFragment } from '@lib/fragments';
-import { meta } from 'site.config';
-import { FiArrowUpRight, FiMail } from 'react-icons/fi';
-import { BsCode, BsDribbble, BsGithub } from 'react-icons/bs';
-import { useTranslations } from 'next-intl';
+import Head from 'next/head'
+import Script from 'next/script'
+import Footer from '@components/footer'
+import Header from '@components/header'
+import Avatar from '@components/avatar'
+import RepoCard from '@components/repo-card'
+import ShotCard from '@components/shot-card'
+import ProjectCard from '@components/project-card'
+import Button from '@components/button'
+import ScrollTop from '@components/scroll-top'
+import { fetchRepos, fetchShots, request } from '@lib/data'
+import { projectFragment } from '@lib/fragments'
+import { meta } from 'site.config'
+import { FiArrowUpRight, FiMail } from 'react-icons/fi'
+import { BsCode, BsDribbble, BsGithub } from 'react-icons/bs'
+import { useTranslations } from 'next-intl'
 
 export default function Home({ repos, shots, projects, homepage, seo }) {
-  const t = useTranslations('Global');
+  const t = useTranslations('Global')
 
   function onEmailClick() {
     const analyticsData = {
@@ -24,9 +24,9 @@ export default function Home({ repos, shots, projects, homepage, seo }) {
       action: 'Email Click',
       target: 'Hero Email Button',
       label: 'Email',
-    };
+    }
 
-    window.dataLayer.push(analyticsData);
+    window.dataLayer.push(analyticsData)
   }
 
   return (
@@ -203,9 +203,7 @@ export default function Home({ repos, shots, projects, homepage, seo }) {
             </p>
           </div>
           <div className="col-span-12 col-start-4 mt-8 md:mt-0">
-            <div className="flex flex-col">
-              {projects.map(ProjectCard)}
-            </div>
+            <div className="flex flex-col">{projects.map(ProjectCard)}</div>
           </div>
         </section>
       </main>
@@ -213,12 +211,12 @@ export default function Home({ repos, shots, projects, homepage, seo }) {
       <Footer />
       <ScrollTop />
     </>
-  );
+  )
 }
 
 export async function getServerSideProps({ locale }) {
-  const repos = await fetchRepos({ sort: 'updated' });
-  const shots = await fetchShots();
+  const repos = await fetchRepos({ sort: 'updated' })
+  const shots = await fetchShots()
   const data = await request({
     query: `query HomeQuery($locale: SiteLocale) {
       homepage(locale: $locale) {
@@ -244,7 +242,7 @@ export async function getServerSideProps({ locale }) {
     ${projectFragment}
     `,
     variables: { locale },
-  });
+  })
 
   return {
     props: {
@@ -255,5 +253,5 @@ export async function getServerSideProps({ locale }) {
       seo: data.site.globalSeo,
       messages: (await import(`../locales/${locale}.json`)).default,
     },
-  };
+  }
 }
