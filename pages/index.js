@@ -15,7 +15,8 @@ import { FiArrowUpRight, FiMail } from 'react-icons/fi'
 import { BsCode, BsDribbble, BsGithub } from 'react-icons/bs'
 import { useTranslations } from 'next-intl'
 
-export default function Home({ repos, shots, projects, homepage, seo }) {
+export default function Home({ repos, shots, projects, homepage, site }) {
+  const seo = site.globalSeo
   const t = useTranslations('Global')
 
   function onEmailClick() {
@@ -238,15 +239,11 @@ export async function getServerSideProps({ locale }) {
     }),
   ])
 
-  const { homepage, site, projects } = data
-
   return {
     props: {
+      ...data,
       repos,
       shots,
-      projects,
-      homepage,
-      seo: site.globalSeo,
       messages: (await import(`../locales/${locale}.json`)).default,
     },
   }
