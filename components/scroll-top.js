@@ -1,12 +1,12 @@
-import cx from 'classnames';
-import useScrollPosition from '@react-hook/window-scroll';
-import { FiArrowUp } from 'react-icons/fi';
-import { useTranslations } from 'next-intl';
-import Button from './button';
+import cx from 'classnames'
+import useScrollPosition from '@react-hook/window-scroll'
+import { FiArrowUp } from 'react-icons/fi'
+import { useTranslations } from 'next-intl'
+import Button from './button'
 
 export default function ScrollTop() {
-  const scrollPosition = useScrollPosition();
-  const t = useTranslations('Global');
+  const scrollPosition = useScrollPosition()
+  const t = useTranslations('Global')
 
   return (
     <div
@@ -24,5 +24,5 @@ export default function ScrollTop() {
         <span className="sr-only">{t('scroll')}</span>
       </Button>
     </div>
-  );
+  )
 }

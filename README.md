@@ -31,15 +31,16 @@ npm run dev
 Contributors names and contact info
 
 - [@oktay](https://github.com/oktay)
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details
 
 ## Sources
 
-* [NextJS](https://nextjs.org/)
-* [Tailwind CSS](https://tailwindcss.com/)
-* [Dato CMS](https://www.datocms.com/docs/next-js)
-* [Github API](https://docs.github.com/en/rest)
-* [Dribbble API](https://developer.dribbble.com/v2/)
-* [Next-Intl](https://www.thisdot.co/blog/next-js-adding-localization-with-next-intl)
+- [NextJS](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Dato CMS](https://www.datocms.com/docs/next-js)
+- [Github API](https://docs.github.com/en/rest)
+- [Dribbble API](https://developer.dribbble.com/v2/)
+- [Next-Intl](https://www.thisdot.co/blog/next-js-adding-localization-with-next-intl)

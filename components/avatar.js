@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/image'
 
 export default function Avatar({ img, alt }) {
   return (
@@ -7,5 +7,5 @@ export default function Avatar({ img, alt }) {
         <Image src={img} alt={alt} layout="fill" />
       </div>
     </figure>
-  );
+  )
 }

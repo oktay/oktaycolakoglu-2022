@@ -1,12 +1,12 @@
-import Link from 'next/link';
-import cx from 'classnames';
-import { useRouter } from 'next/router';
-import { HiTranslate } from 'react-icons/hi';
-import { useTranslations } from 'next-intl';
+import Link from 'next/link'
+import cx from 'classnames'
+import { useRouter } from 'next/router'
+import { HiTranslate } from 'react-icons/hi'
+import { useTranslations } from 'next-intl'
 
 export default function LocaleSwitch() {
-  const { route, locale } = useRouter();
-  const t = useTranslations('Global');
+  const { route, locale } = useRouter()
+  const t = useTranslations('Global')
 
   return (
     <Link href={route} locale={locale === 'tr' ? 'en' : 'tr'}>
@@ -43,5 +43,5 @@ export default function LocaleSwitch() {
         </span>
       </a>
     </Link>
-  );
+  )
 }

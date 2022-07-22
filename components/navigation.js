@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { FiMenu } from 'react-icons/fi';
-import { useTranslations } from 'next-intl';
-import Button from '@components/button';
-import cx from 'classnames';
-import LocaleSwitch from './locale-switch';
+import { useState } from 'react'
+import { FiMenu } from 'react-icons/fi'
+import { useTranslations } from 'next-intl'
+import Button from '@components/button'
+import cx from 'classnames'
+import LocaleSwitch from './locale-switch'
 
 export default function Navigation() {
-  const [show, setShow] = useState(false);
-  const t = useTranslations('Global');
+  const [show, setShow] = useState(false)
+  const t = useTranslations('Global')
 
   const links = [
     {
@@ -26,7 +26,7 @@ export default function Navigation() {
       href: '#projects',
       label: t('nav-projects'),
     },
-  ];
+  ]
 
   function onClick(label) {
     const analyticsData = {
@@ -34,9 +34,9 @@ export default function Navigation() {
       action: 'Navigation Click',
       target: 'Main Navigation',
       label: label,
-    };
+    }
 
-    window.dataLayer.push(analyticsData);
+    window.dataLayer.push(analyticsData)
   }
 
   function onMobileClick(label) {
@@ -45,9 +45,9 @@ export default function Navigation() {
       action: 'MobileNavigation Click',
       target: 'Mobile Navigation',
       label: label,
-    };
+    }
 
-    window.dataLayer.push(analyticsData);
+    window.dataLayer.push(analyticsData)
   }
 
   return (
@@ -75,7 +75,9 @@ export default function Navigation() {
       </ul>
       <ul
         className={cx(
-          show ? 'translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none',
+          show
+            ? 'translate-y-0'
+            : 'opacity-0 -translate-y-full pointer-events-none',
           'bg-zinc-900 flex flex-col absolute top-32 left-0 -z-10 w-full transform origin-top transition lg:hidden',
         )}
       >
@@ -95,5 +97,5 @@ export default function Navigation() {
         </li>
       </ul>
     </nav>
-  );
+  )
 }
