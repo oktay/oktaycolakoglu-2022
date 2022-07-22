@@ -9,7 +9,7 @@ import ProjectCard from '@components/project-card'
 import Button from '@components/button'
 import ScrollTop from '@components/scroll-top'
 import { fetchRepos, fetchShots, request } from '@lib/data'
-import { projectFragment } from '@lib/fragments'
+import { homepageFragment, projectFragment, siteFragment } from '@lib/fragments'
 import { meta } from 'site.config'
 import { FiArrowUpRight, FiMail } from 'react-icons/fi'
 import { BsCode, BsDribbble, BsGithub } from 'react-icons/bs'
@@ -215,42 +215,38 @@ export default function Home({ repos, shots, projects, homepage, seo }) {
 }
 
 export async function getServerSideProps({ locale }) {
-  const repos = await fetchRepos({ sort: 'updated' })
-  const shots = await fetchShots()
-  const data = await request({
-    query: `query HomeQuery($locale: SiteLocale) {
+  const [repos, shots, data] = await Promise.all([
+    await fetchRepos({ sort: 'updated' }),
+    await fetchShots(),
+    await request({
+      query: `query ($locale: SiteLocale) {
       homepage(locale: $locale) {
-        title
-        subtitle
-        description
-        available
+        ...HomepageFragment
       }
       site: _site {
-        globalSeo(locale: $locale) {
-          titleSuffix
-          twitterAccount
-          fallbackSeo {
-            description
-            title
-          }
-        }
+        ...SiteFragment
       }
       projects: allProjects(locale: $locale) {
         ...ProjectFragment
       }
     }
+    ${homepageFragment}
+    ${siteFragment}
     ${projectFragment}
     `,
-    variables: { locale },
-  })
+      variables: { locale },
+    }),
+  ])
+
+  const { homepage, site, projects } = data
 
   return {
     props: {
       repos,
       shots,
-      projects: data.projects,
-      homepage: data.homepage,
-      seo: data.site.globalSeo,
+      projects,
+      homepage,
+      seo: site.globalSeo,
       messages: (await import(`../locales/${locale}.json`)).default,
     },
   }
