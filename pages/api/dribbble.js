@@ -9,26 +9,26 @@ export default function handler(_req, res) {
       {
         id: 1,
         images: {
-          two_x:
-            '/images/shot-1.jpg',
+          two_x: '/images/shot-1.jpg',
         },
         title: 'Example Shot',
+        html_url: 'https://dribbble.com/oktaycolakoglu',
       },
       {
         id: 2,
         images: {
-          two_x:
-            '/images/shot-2.jpg',
+          two_x: '/images/shot-2.jpg',
         },
         title: 'Example Shot',
+        html_url: 'https://dribbble.com/oktaycolakoglu',
       },
       {
         id: 3,
         images: {
-          two_x:
-            '/images/shot-3.jpg',
+          two_x: '/images/shot-3.jpg',
         },
         title: 'Example Shot',
+        html_url: 'https://dribbble.com/oktaycolakoglu',
       },
     ],
   })
