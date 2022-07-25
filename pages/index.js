@@ -114,7 +114,7 @@ export default function Home({ repos, shots, projects, homepage, site }) {
         `}
       </Script>
 
-      <Header />
+      <Header status={homepage.available} />
 
       <main className="mb-32">
         <section

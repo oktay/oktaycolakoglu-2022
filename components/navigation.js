@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { FiMenu } from 'react-icons/fi'
 import { useTranslations } from 'next-intl'
-import Button from '@components/button'
 import cx from 'classnames'
 import LocaleSwitch from './locale-switch'
 
@@ -51,51 +50,46 @@ export default function Navigation() {
   }
 
   return (
-    <nav className="flex items-center">
-      <Button
-        className="text-xl p-4 border border-zinc-600 lg:hidden"
+    <nav>
+      <button
+        className={cx(
+          !show && 'bg-white text-black',
+          'button cursor-pointe text-xl p-4 border dark:border-zinc-600',
+        )}
         onClick={() => setShow(!show)}
       >
-        <span className="sr-only">Menu</span>
         <FiMenu />
-      </Button>
-      <ul className="space-x-16 hidden lg:flex">
-        {links.map(({ href, label }) => (
-          <li key={href}>
-            <a
-              href={href}
-              className="inline-flex items-center space-x-4 font-medium"
-              onClick={() => onClick(label)}
-            >
-              <span>{label}</span>
-            </a>
-          </li>
-        ))}
-        <LocaleSwitch />
-      </ul>
-      <ul
+        <span className="sr-only md:not-sr-only text-sm">{t('menu')}</span>
+      </button>
+      <div
         className={cx(
           show
             ? 'translate-y-0'
-            : 'opacity-0 -translate-y-full pointer-events-none',
-          'bg-zinc-900 flex flex-col absolute top-32 left-0 -z-10 w-full transform origin-top transition lg:hidden',
+            : 'opacity-0 -translate-y-8 pointer-events-none',
+          'absolute top-28 right-0 -z-10 w-full container-padding transform origin-top transition',
         )}
       >
-        {links.map(({ href, label }) => (
-          <li key={href}>
-            <a
-              href={href}
-              className="flex px-12 py-8"
-              onClick={() => onMobileClick(label)}
-            >
-              <span>{label}</span>
-            </a>
+        <ul
+          className={cx(
+            'bg-white text-black flex flex-col ml-auto w-full md:w-64 rounded-lg overflow-hidden border dark:border-0',
+          )}
+        >
+          {links.map(({ href, label }) => (
+            <li key={href}>
+              <a
+                href={href}
+                className="flex items-center justify-between px-8 py-4 border-y -mt-px relative hover:z-10 font-medium transition hover:border-theme-200 hover:bg-theme-50 hover:text-theme-600"
+                onClick={() => onMobileClick(label)}
+              >
+                <span>{label}</span>
+              </a>
+            </li>
+          ))}
+          <li>
+            <LocaleSwitch />
           </li>
-        ))}
-        <li className="bg-white px-12 py-4">
-          <LocaleSwitch />
-        </li>
-      </ul>
+        </ul>
+      </div>
     </nav>
   )
 }
