@@ -9,8 +9,6 @@ export default function RepoCard({
   language,
   html_url,
   fork,
-  // homepage,
-  // topics,
 }) {
   function onClick() {
     const analyticsData = {
@@ -22,17 +20,6 @@ export default function RepoCard({
 
     window.dataLayer.push(analyticsData)
   }
-
-  // function onHomepageClick() {
-  //   const analyticsData = {
-  //     event: 'Click',
-  //     action: 'Repository Homepage Click',
-  //     target: 'Github Section Repository Card',
-  //     label: homepage,
-  //   };
-
-  //   window.dataLayer.push(analyticsData);
-  // }
 
   return (
     <div
