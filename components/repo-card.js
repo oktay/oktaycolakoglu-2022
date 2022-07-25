@@ -1,4 +1,5 @@
 import { BsStar, BsEye, BsFileEarmarkCode } from 'react-icons/bs'
+import { motion } from 'framer-motion'
 
 export default function RepoCard({
   id,
@@ -9,6 +10,7 @@ export default function RepoCard({
   language,
   html_url,
   fork,
+  variants,
 }) {
   function onClick() {
     const analyticsData = {
@@ -22,8 +24,8 @@ export default function RepoCard({
   }
 
   return (
-    <div
-      key={id}
+    <motion.div
+      variants={variants}
       className="relative group h-full w-3/4 sm:w-full flex-shrink-0 snap-start"
     >
       <div className="aspect-3/2">
@@ -57,6 +59,6 @@ export default function RepoCard({
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }

@@ -14,10 +14,21 @@ import { meta } from 'site.config'
 import { FiArrowUpRight, FiMail } from 'react-icons/fi'
 import { BsCode, BsDribbble, BsGithub } from 'react-icons/bs'
 import { useTranslations } from 'next-intl'
+import { AnimatePresence, motion, useAnimation, useInView } from 'framer-motion'
+import { useEffect, useRef } from 'react'
+import { useRouter } from 'next/router'
 
 export default function Home({ repos, shots, projects, homepage, site }) {
   const seo = site.globalSeo
   const t = useTranslations('Global')
+  const githubRef = useRef(null)
+  const isGithubInView = useInView(githubRef)
+  const githubAnimation = useAnimation()
+  const dribbbleRef = useRef(null)
+  const isDribbbleInView = useInView(dribbbleRef)
+  const dribbbleAnimation = useAnimation()
+  const entryAnimation = useAnimation()
+  const { locale } = useRouter()
 
   function onEmailClick() {
     const analyticsData = {
@@ -29,6 +40,47 @@ export default function Home({ repos, shots, projects, homepage, site }) {
 
     window.dataLayer.push(analyticsData)
   }
+
+  const containerVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        duration: 0.5,
+        ease: 'easeInOut',
+      },
+    },
+  }
+
+  useEffect(() => {
+    if (isGithubInView) {
+      githubAnimation.start('visible')
+    }
+
+    if (isDribbbleInView) {
+      dribbbleAnimation.start('visible')
+    }
+  }, [isGithubInView, githubAnimation, isDribbbleInView, dribbbleAnimation])
+
+  useEffect(() => {
+    entryAnimation.set({ y: 25, opacity: 0 })
+    entryAnimation.start({ y: 0, opacity: 1 })
+  }, [locale, entryAnimation])
 
   return (
     <>
@@ -95,6 +147,124 @@ export default function Home({ repos, shots, projects, homepage, site }) {
         <meta name="twitter:image" content="/thumbnail.png" />
       </Head>
 
+      <Header />
+      <AnimatePresence>
+        <motion.main
+          animate={entryAnimation}
+          initial="hidden"
+          className="mb-32"
+        >
+          <section
+            id="hero"
+            className="container-padding pt-16 pb-20 md:pt-20 md:pb-24"
+          >
+            <div className="container-xs flex flex-col items-center text-center">
+              <figure className="mb-8">
+                <Avatar img="/memoji.png" alt="Memoji" />
+              </figure>
+              <h4 className="text-3xl font-medium mb-8 tracking-custom">
+                {homepage.subtitle}
+              </h4>
+              <h1 className="hero-title tracking-custom mb-12">
+                {homepage.title}
+              </h1>
+              <p className="hero-desc text-lg mb-12 sm:text-2xl">
+                {homepage.description}
+              </p>
+              <Button
+                href={`mailto:${meta.email}`}
+                className="bg-black text-white dark:bg-white dark:text-black text-sm font-bold"
+                onClick={onEmailClick}
+                firstIcon={<FiMail />}
+                secondIcon={<FiArrowUpRight />}
+              >
+                {t('contact')}
+              </Button>
+            </div>
+          </section>
+
+          <section
+            ref={githubRef}
+            id="github"
+            className="container-xl md:grid md:grid-cols-12 scroll-m-36"
+          >
+            <div className="flex items-center md:block md:col-span-2">
+              <figure>
+                <BsGithub className="text-3xl md:text-5xl" />
+                <span className="sr-only">Github</span>
+              </figure>
+              <p className="text-xl ml-4 md:ml-0 md:text-2xl md:mt-6">
+                {t('github')}
+              </p>
+            </div>
+            <div className="col-span-12 col-start-4 mt-8 md:mt-0">
+              <motion.div
+                variants={containerVariants}
+                animate={githubAnimation}
+                initial="hidden"
+                className="flex overflow-scroll gap-6 snap-mandatory snap-x sm:overflow-auto sm:grid sm:grid-cols-2 xl:grid-cols-3"
+              >
+                {repos.slice(0, 6).map((repo) => (
+                  <RepoCard key={repo.id} variants={itemVariants} {...repo} />
+                ))}
+              </motion.div>
+            </div>
+          </section>
+
+          <hr className="border-transparent my-8 md:my-16" />
+
+          <section
+            ref={dribbbleRef}
+            id="dribbble"
+            className="container-xl md:grid md:grid-cols-12 scroll-m-36"
+          >
+            <div className="flex items-center md:block md:col-span-2">
+              <figure>
+                <BsDribbble className="text-3xl md:text-5xl" />
+                <span className="sr-only">Dribbble</span>
+              </figure>
+              <p className="text-xl ml-4 md:ml-0 md:text-2xl md:mt-6">
+                {t('dribbble')}
+              </p>
+            </div>
+            <div className="col-span-12 col-start-4 mt-8 md:mt-0">
+              <motion.div
+                variants={containerVariants}
+                animate={dribbbleAnimation}
+                initial="hidden"
+                className="flex overflow-scroll gap-6 snap-mandatory snap-x md:overflow-auto md:grid md:grid-cols-2 xl:grid-cols-3"
+              >
+                {shots.slice(0, 6).map((shot) => (
+                  <ShotCard key={shot.id} variants={itemVariants} {...shot} />
+                ))}
+              </motion.div>
+            </div>
+          </section>
+
+          <hr className="border-transparent my-8 md:my-16" />
+
+          <section
+            id="projects"
+            className="container-xl md:grid md:grid-cols-12 scroll-m-36"
+          >
+            <div className="flex items-center md:block md:col-span-2">
+              <figure>
+                <BsCode className="text-3xl md:text-5xl" />
+                <span className="sr-only">Code</span>
+              </figure>
+              <p className="text-xl ml-4 md:ml-0 md:text-2xl md:mt-6">
+                {t('projects')}
+              </p>
+            </div>
+            <div className="col-span-12 col-start-4 mt-8 md:mt-0">
+              <div className="flex flex-col">{projects.map(ProjectCard)}</div>
+            </div>
+          </section>
+        </motion.main>
+      </AnimatePresence>
+      <Footer />
+      <ScrollTop />
+
       <Script id="google-analytics" strategy="afterInteractive">
         {`
            window.dataLayer = window.dataLayer || [];
@@ -113,104 +283,6 @@ export default function Home({ repos, shots, projects, homepage, site }) {
            })(window,document,'script','dataLayer','GTM-5NTV3P2');
         `}
       </Script>
-
-      <Header />
-
-      <main className="mb-32">
-        <section
-          id="hero"
-          className="container-padding pt-16 pb-20 md:pt-20 md:pb-24"
-        >
-          <div className="container-xs flex flex-col items-center text-center">
-            <figure className="mb-8">
-              <Avatar img="/memoji.png" alt="Memoji" />
-            </figure>
-            <h4 className="text-3xl font-medium mb-8 tracking-custom">
-              {homepage.subtitle}
-            </h4>
-            <h1 className="hero-title tracking-custom mb-12">
-              {homepage.title}
-            </h1>
-            <p className="hero-desc text-lg mb-12 sm:text-2xl">
-              {homepage.description}
-            </p>
-            <Button
-              href={`mailto:${meta.email}`}
-              className="bg-black text-white dark:bg-white dark:text-black text-sm font-bold"
-              onClick={onEmailClick}
-              firstIcon={<FiMail />}
-              secondIcon={<FiArrowUpRight />}
-            >
-              {t('contact')}
-            </Button>
-          </div>
-        </section>
-
-        <section
-          id="github"
-          className="container-xl md:grid md:grid-cols-12 scroll-m-36"
-        >
-          <div className="flex items-center md:block md:col-span-2">
-            <figure>
-              <BsGithub className="text-3xl md:text-5xl" />
-              <span className="sr-only">Github</span>
-            </figure>
-            <p className="text-xl ml-4 md:ml-0 md:text-2xl md:mt-6">
-              {t('github')}
-            </p>
-          </div>
-          <div className="col-span-12 col-start-4 mt-8 md:mt-0">
-            <div className="flex overflow-scroll gap-6 snap-mandatory snap-x sm:overflow-auto sm:grid sm:grid-cols-2 xl:grid-cols-3">
-              {repos.slice(0, 6).map(RepoCard)}
-            </div>
-          </div>
-        </section>
-
-        <hr className="border-transparent my-8 md:my-16" />
-
-        <section
-          id="dribbble"
-          className="container-xl md:grid md:grid-cols-12 scroll-m-36"
-        >
-          <div className="flex items-center md:block md:col-span-2">
-            <figure>
-              <BsDribbble className="text-3xl md:text-5xl" />
-              <span className="sr-only">Dribbble</span>
-            </figure>
-            <p className="text-xl ml-4 md:ml-0 md:text-2xl md:mt-6">
-              {t('dribbble')}
-            </p>
-          </div>
-          <div className="col-span-12 col-start-4 mt-8 md:mt-0">
-            <div className="flex overflow-scroll gap-6 snap-mandatory snap-x md:overflow-auto md:grid md:grid-cols-2 xl:grid-cols-3">
-              {shots.slice(0, 6).map(ShotCard)}
-            </div>
-          </div>
-        </section>
-
-        <hr className="border-transparent my-8 md:my-16" />
-
-        <section
-          id="projects"
-          className="container-xl md:grid md:grid-cols-12 scroll-m-36"
-        >
-          <div className="flex items-center md:block md:col-span-2">
-            <figure>
-              <BsCode className="text-3xl md:text-5xl" />
-              <span className="sr-only">Code</span>
-            </figure>
-            <p className="text-xl ml-4 md:ml-0 md:text-2xl md:mt-6">
-              {t('projects')}
-            </p>
-          </div>
-          <div className="col-span-12 col-start-4 mt-8 md:mt-0">
-            <div className="flex flex-col">{projects.map(ProjectCard)}</div>
-          </div>
-        </section>
-      </main>
-
-      <Footer />
-      <ScrollTop />
     </>
   )
 }

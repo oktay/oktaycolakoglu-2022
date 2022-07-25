@@ -1,6 +1,7 @@
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 
-export default function ShotCard({ id, title, images, html_url, tags }) {
+export default function ShotCard({ id, title, images, html_url, variants }) {
   function onClick() {
     const analyticsData = {
       event: 'Click',
@@ -13,8 +14,8 @@ export default function ShotCard({ id, title, images, html_url, tags }) {
   }
 
   return (
-    <div
-      key={id}
+    <motion.div
+      variants={variants}
       className="relative group h-full w-3/4 md:w-full flex-shrink-0 snap-start"
     >
       <div className="aspect-[4/3]">
@@ -39,6 +40,6 @@ export default function ShotCard({ id, title, images, html_url, tags }) {
           </div>
         </div>
       </a>
-    </div>
+    </motion.div>
   )
 }
