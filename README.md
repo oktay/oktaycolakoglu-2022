@@ -6,7 +6,7 @@ _(Next JS ve Tailwind CSS ile hazırlanan kişisel anasayfam)_
 
 ## Description
 
-This project made with Next JS, uses Tailwind CSS for styling. It's a personal homepage for me. It's a simple project with only one page and it uses Dato CMS for content management, Github API for show Github activities, and Dribbble API for show last dribbble shots.
+This project made with Next JS, uses Tailwind CSS for styling and Framer Motion for animations. It's a personal homepage for me. It's a simple project with only one page and it uses Dato CMS for content management, Github API for show Github activities, and Dribbble API for show last dribbble shots.
 
 _(Kişisel anasayfam olan bu proje Next JS kullanılarak hazırlandı, stiller için Tailwind CSS kullanıldı. Tek sayfadan oluşan bu basit proje; içerik yönetimi için Dato CMS, Github aktiviteleri için Github API, Dribbble'da son paylaşımlarımı göstermek için de Dribbble API kullanıyor.)_
 
@@ -45,6 +45,7 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 - [NextJS](https://nextjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
 - [Dato CMS](https://www.datocms.com/docs/next-js)
 - [Github API](https://docs.github.com/en/rest)
 - [Dribbble API](https://developer.dribbble.com/v2/)

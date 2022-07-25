@@ -2,8 +2,7 @@ import { meta } from 'site.config'
 import { BsDribbble, BsGithub, BsLinkedin } from 'react-icons/bs'
 import {
   SiDatocms,
-  SiDribbble,
-  SiGithub,
+  SiFramer,
   SiNextdotjs,
   SiTailwindcss,
   SiVercel,
@@ -45,19 +44,14 @@ export default function Footer() {
       icon: <SiTailwindcss />,
     },
     {
+      href: 'https://www.framer.com/motion/',
+      label: 'Framer Motion',
+      icon: <SiFramer />,
+    },
+    {
       href: 'https://www.datocms.com/',
       label: 'Dato CMS',
       icon: <SiDatocms />,
-    },
-    {
-      href: 'https://docs.github.com/en/rest',
-      label: 'Github API',
-      icon: <SiGithub />,
-    },
-    {
-      href: 'https://developer.dribbble.com/',
-      label: 'Dribbble API',
-      icon: <SiDribbble />,
     },
   ]
 
