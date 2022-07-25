@@ -3,44 +3,46 @@ import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { HiTranslate } from 'react-icons/hi'
 import { useTranslations } from 'next-intl'
+import { AnimateSharedLayout, motion } from 'framer-motion'
 
 export default function LocaleSwitch() {
-  const { route, locale } = useRouter()
+  const { route, locale, locales } = useRouter()
   const t = useTranslations('Global')
 
   return (
     <Link href={route} locale={locale === 'tr' ? 'en' : 'tr'}>
-      <a className="w-full bg-black text-white dark:bg-white dark:text-black p-1 pl-2 rounded-full text-xs tracking-widest font-bold inline-flex items-center group">
+      <a className="flex items-center p-1 pl-2 rounded-full bg-white text-xs text-black hover:text-theme-400">
         <HiTranslate className="text-lg mr-2 lg:group-hover:text-theme-400 transition" />
         <span className="mr-auto uppercase lg:sr-only">{t('lang')}</span>
-        <span className="relative">
-          <span
-            className={cx(
-              'relative px-2 z-10 transition',
-              locale === 'tr'
-                ? 'text-black dark:text-white'
-                : 'text-white dark:text-black lg:group-hover:text-theme-400',
-            )}
-          >
-            TR
-          </span>
-          <span
-            className={cx(
-              'relative px-2 z-10 transition',
-              locale === 'en'
-                ? 'text-black dark:text-white'
-                : 'text-white dark:text-black lg:group-hover:text-theme-400',
-            )}
-          >
-            EN
-          </span>
-          <span
-            className={cx(
-              'bg-theme-400 absolute w-1/2 h-full inset-0 rounded-full transition-all',
-              locale === 'en' ? 'left-1/2' : 'left-0',
-            )}
-          ></span>
-        </span>
+        <div className="flex font-bold">
+          <AnimateSharedLayout>
+            {locales.map((l) => (
+              <div key={l} className="relative px-3">
+                {locale === l && (
+                  <motion.span
+                    layoutId="locale-switch"
+                    initial={false}
+                    transition={{
+                      type: 'spring',
+                      stiffness: 500,
+                      damping: 50,
+                      mass: 2,
+                    }}
+                    className="absolute inset-0 bg-theme-400 rounded-full"
+                  />
+                )}
+                <span
+                  className={cx(
+                    'relative uppercase',
+                    l === locale && 'text-white',
+                  )}
+                >
+                  {l}
+                </span>
+              </div>
+            ))}
+          </AnimateSharedLayout>
+        </div>
       </a>
     </Link>
   )
