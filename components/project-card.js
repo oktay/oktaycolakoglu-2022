@@ -19,7 +19,14 @@ export default function ProjectCard({
     window.dataLayer.push(analyticsData)
   }
   return (
-    <div key={id} className="relative rounded-lg overflow-hidden">
+    <a
+      key={id}
+      className="block relative rounded-lg overflow-hidden"
+      href={url}
+      onClick={onClick}
+      rel="noreferrer"
+      target="_blank"
+    >
       <div className="aspect-4/3 relative">
         <Image src={thumbnail.url} alt={title} layout="fill" />
       </div>
@@ -40,13 +47,6 @@ export default function ProjectCard({
           <p className="text-zinc-600 dark:text-zinc-200">{description}</p>
         </div>
       </div>
-      <a
-        href={url}
-        onClick={onClick}
-        target="_blank"
-        rel="noreferrer"
-        className="absolute inset-0"
-      ></a>
-    </div>
+    </a>
   )
 }

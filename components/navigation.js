@@ -53,16 +53,16 @@ export default function Navigation() {
 
   return (
     <nav className="flex items-center">
-      <Button
+      <button
         className={cx(
           show && 'bg-white text-black',
-          'text-xl p-4 border border-zinc-600 lg:hidden',
+          'text-xl p-4 border border-zinc-600 rounded-full lg:hidden',
         )}
         onClick={() => setShow(!show)}
       >
         <span className="sr-only">Menu</span>
         <FiMenu />
-      </Button>
+      </button>
       <ul className="space-x-16 hidden lg:flex">
         {links.map(({ href, label }) => (
           <li key={href}>
@@ -75,7 +75,9 @@ export default function Navigation() {
             </a>
           </li>
         ))}
-        <LocaleSwitch />
+        <li>
+          <LocaleSwitch />
+        </li>
       </ul>
       <AnimatePresence>
         {show && (
