@@ -18,7 +18,7 @@ export default function ShotCard({ id, title, images, html_url, variants }) {
       variants={variants}
       className="relative group h-full w-3/4 md:w-full flex-shrink-0 snap-start"
     >
-      <div className="aspect-[4/3]">
+      <div className="aspect-[4/3] relative">
         <Image
           src={images.two_x}
           alt={title}

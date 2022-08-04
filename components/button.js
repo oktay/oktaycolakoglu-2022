@@ -1,4 +1,6 @@
 import cx from 'classnames'
+import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
+import { useState } from 'react'
 
 export default function Button({
   className,
@@ -7,33 +9,35 @@ export default function Button({
   children,
   ...props
 }) {
+  const [hover, setHover] = useState(false)
+
   return (
     <a
       className={cx(
         'group button inline-flex items-center space-x-6 overflow-hidden',
         className,
       )}
+      onMouseOver={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
       {...props}
     >
       <span>{children}</span>
-      <span
-        className={cx(
-          'relative inline-flex',
-          !firstIcon && !secondIcon && 'hidden',
-        )}
-      >
-        <span
-          className={cx(
-            'text-2xl inline-flex transition',
-            secondIcon && 'group-hover:-translate-y-12',
-          )}
+      <AnimatePresence exitBeforeEnter>
+        <motion.div
+          key={hover ? 2 : 0}
+          initial={{ y: '100%' }}
+          animate={{ y: 0 }}
+          exit={{
+            y: '-200%',
+            transition: {
+              duration: 0.1,
+            },
+          }}
+          className="text-2xl"
         >
-          {firstIcon}
-        </span>
-        <span className="text-2xl absolute inset-0 translate-y-12 group-hover:translate-y-0 transition">
-          {secondIcon}
-        </span>
-      </span>
+          {hover ? secondIcon : firstIcon}
+        </motion.div>
+      </AnimatePresence>
     </a>
   )
 }
