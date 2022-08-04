@@ -80,7 +80,9 @@ export default function Home({ repos, shots, projects, homepage, site }) {
   useEffect(() => {
     entryAnimation.set({ y: 25, opacity: 0 })
     entryAnimation.start({ y: 0, opacity: 1 })
-  }, [locale, entryAnimation])
+    githubAnimation.set('hidden')
+    dribbbleAnimation.set('hidden')
+  }, [locale, entryAnimation, githubAnimation, dribbbleAnimation])
 
   return (
     <>
@@ -204,9 +206,11 @@ export default function Home({ repos, shots, projects, homepage, site }) {
                 initial="hidden"
                 className="flex overflow-scroll gap-6 snap-mandatory snap-x sm:overflow-auto sm:grid sm:grid-cols-2 xl:grid-cols-3"
               >
-                {repos.slice(0, 6).map((repo) => (
-                  <RepoCard key={repo.id} variants={itemVariants} {...repo} />
-                ))}
+                {repos
+                  .filter((repo) => !repo.archived)
+                  .map((repo) => (
+                    <RepoCard key={repo.id} variants={itemVariants} {...repo} />
+                  ))}
               </motion.div>
             </div>
           </section>
@@ -287,9 +291,9 @@ export default function Home({ repos, shots, projects, homepage, site }) {
   )
 }
 
-export async function getServerSideProps({ locale }) {
+export async function getStaticProps({ locale }) {
   const [repos, shots, data] = await Promise.all([
-    await fetchRepos({ sort: 'updated' }),
+    await fetchRepos({ sort: 'updated', per_page: 6 }),
     await fetchShots(),
     await request({
       query: `query ($locale: SiteLocale) {
