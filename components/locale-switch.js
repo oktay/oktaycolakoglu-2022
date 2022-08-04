@@ -3,7 +3,7 @@ import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { HiTranslate } from 'react-icons/hi'
 import { useTranslations } from 'next-intl'
-import { AnimateSharedLayout, motion } from 'framer-motion'
+import { LayoutGroup, motion } from 'framer-motion'
 
 export default function LocaleSwitch() {
   const { route, locale, locales } = useRouter()
@@ -15,7 +15,7 @@ export default function LocaleSwitch() {
         <HiTranslate className="text-lg mr-2 lg:group-hover:text-theme-400 transition" />
         <span className="mr-auto uppercase lg:sr-only">{t('lang')}</span>
         <div className="flex font-bold">
-          <AnimateSharedLayout>
+          <LayoutGroup>
             {locales.map((l) => (
               <div key={l} className="relative px-3">
                 {locale === l && (
@@ -41,7 +41,7 @@ export default function LocaleSwitch() {
                 </span>
               </div>
             ))}
-          </AnimateSharedLayout>
+          </LayoutGroup>
         </div>
       </a>
     </Link>
