@@ -208,6 +208,7 @@ export default function Home({ repos, shots, projects, homepage, site }) {
               >
                 {repos
                   .filter((repo) => !repo.archived)
+                  .slice(0, 6)
                   .map((repo) => (
                     <RepoCard key={repo.id} variants={itemVariants} {...repo} />
                   ))}
@@ -293,7 +294,7 @@ export default function Home({ repos, shots, projects, homepage, site }) {
 
 export async function getStaticProps({ locale }) {
   const [repos, shots, data] = await Promise.all([
-    await fetchRepos({ sort: 'updated', per_page: 6 }),
+    await fetchRepos({ sort: 'updated' }),
     await fetchShots(),
     await request({
       query: `query ($locale: SiteLocale) {
