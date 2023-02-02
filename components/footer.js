@@ -5,7 +5,7 @@ import {
   SiFramer,
   SiNextdotjs,
   SiTailwindcss,
-  SiVercel,
+  SiNetlify,
 } from 'react-icons/si'
 import SocialLink from '@components/social-link'
 import Email from '@components/email'
@@ -29,9 +29,9 @@ export default function Footer() {
 
   const credits = [
     {
-      href: 'https://www.vercel.com/',
-      label: 'Vercel',
-      icon: <SiVercel />,
+      href: 'https://www.netlify.com/',
+      label: 'Netlify',
+      icon: <SiNetlify />,
     },
     {
       href: 'https://nextjs.org',
