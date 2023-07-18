@@ -262,7 +262,9 @@ export default function Home({ repos, shots, projects, homepage, site }) {
               </p>
             </div>
             <div className="col-span-12 col-start-4 mt-8 md:mt-0">
-              <div className="flex flex-col">{projects.map(ProjectCard)}</div>
+              <div className="flex flex-col space-y-4">
+                {projects.map(ProjectCard)}
+              </div>
             </div>
           </section>
         </motion.main>
