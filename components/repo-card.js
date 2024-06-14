@@ -24,22 +24,20 @@ export default function RepoCard({
   }
 
   return (
-    <motion.div
+    <motion.a
+      href={html_url}
+      target="_blank"
+      rel="noreferrer"
+      onClick={onClick}
       variants={variants}
       className="relative group h-full w-3/4 sm:w-full flex-shrink-0 snap-start"
     >
       <div className="aspect-3/2">
         <div className="card flex flex-col h-full w-full p-4 md:p-6">
-          <a
-            href={html_url}
-            target="_blank"
-            rel="noreferrer"
-            onClick={onClick}
-            className="font-semibold lg:text-lg flex items-center space-x-2"
-          >
+          <span className="font-semibold lg:text-lg flex items-center space-x-2">
             <span className="truncate">{name}</span>
             {fork && <span className="badge">FORK</span>}
-          </a>
+          </span>
           <p className="text-sm mt-2 text-zinc-500">
             {description || 'No description'}
           </p>
@@ -59,6 +57,6 @@ export default function RepoCard({
           </div>
         </div>
       </div>
-    </motion.div>
+    </motion.a>
   )
 }
